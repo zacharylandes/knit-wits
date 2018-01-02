@@ -4,6 +4,8 @@ describe "user can view all items" do
     item2 = create(:item)
     item3 = create(:item)
 
+    visit items_path
+
     expect(page).to have_content(item1.title)
     expect(page).to have_content(item1.price)
   end
