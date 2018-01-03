@@ -16,6 +16,15 @@
  */
 
  @import "foundation_and_overrides";
+
+ nav{
+   display: flex;
+   flex-direction: row;
+   align-items:flex-end;
+   justify-content: space-between;
+   background-color:  #3E442B;
+ }
+
  body{
    background-color: #E1DCD9;
    font-family: 'Josefin Sans', sans-serif;
@@ -23,7 +32,6 @@
 
 i{
   color: #E3E7D3;
-
 }
 
 
@@ -43,12 +51,18 @@ i{
   text-decoration: none;
 }
 
-.menu-hover-lines li:first-child a {
-  // margin-left: 0;
-}
+// .menu-hover-lines li:first-child a {
+//   // margin-left: 0;
+// }
 
 .menu-hover-lines li.active > a {
   background-color: transparent;
+}
+
+img{
+  width: 330px;
+  height: 140px;
+
 }
 
 .menu-hover-lines a:before,
@@ -80,11 +94,12 @@ ul {
   transition: all 0.35s ease;
   text-decoration: none;
 }
+
 .menu{
   list-style-type: none;
   display:  flex;
   background:#3E442B;
-  padding:30px;
+  padding-right: 25px;
 }
 
 .menu-hover-lines a:hover::before,
@@ -214,7 +229,7 @@ body {
 }
 .breadcrumb-counter-nav .breadcrumb-counter-nav-item :hover, .mobile-app-icon-bar :hover, {
   color:  #E3E7D3;
-  font-size: .95rem;
+  font-size: .99rem;
   text-shadow: 2px 2px black;
 }
 
