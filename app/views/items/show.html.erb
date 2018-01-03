@@ -1,0 +1,11 @@
+<div class="product-page">
+  <div class="product-image">
+    <img src='<%= asset_path(@item.image) %>'>
+  </div>
+  <div class="product-details">
+    <h2><%= @item.title %></h2>
+    <h3><%= @item.price_in_dollars %></h3>
+    <%= button_to "Add to Cart" %>
+    <p><%= @item.description %></p>
+  </div>
+</div>

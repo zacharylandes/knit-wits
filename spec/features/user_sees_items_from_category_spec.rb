@@ -10,6 +10,6 @@ describe "user can view all items in certain category" do
     visit category_path(category1)
 
     expect(page).to have_content(item1.title)
-    expect(page).to have_content(item1.price)
+    expect(page).to have_content(item1.price_in_dollars)
   end
 end
