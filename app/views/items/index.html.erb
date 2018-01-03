@@ -1,6 +1,6 @@
 
 
-<li class="breadcrumb-counter-nav-item"><i class="fa fa-cart-arrow-down fa-1x" aria-hidden="true"> </i><li>
+<i class="fa fa-cart-arrow-down fa-1x" aria-hidden="true"> </i>
 <div class="sort">
   <%= form_tag(items_path, method: :get) do %>
     <%= select_tag(:sort, options_for_select(sort_methods, params[:sort])) %>
