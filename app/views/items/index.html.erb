@@ -13,7 +13,7 @@
     </div>
     <%= link_to item.title, item_path(item), class: "product-card-title" %></br>
     <span class="product-card-price"><%= item.price_in_dollars %></span></br>
-    <%= link_to "Add to Cart"  %>
+    <%= button_to "Add to Cart"  %>
   </div>
 <% end %>
 </div>
