@@ -21,7 +21,7 @@ describe "Visitor sees item they like" do
 
       click_button "Add to Cart"
 
-      expect(page).to have_content("You now have 2 #{@item.title} in your cart!")
+      expect(page).to have_content("You now have 2 #{@item.title}s in your cart!")
     end
   end
 end
