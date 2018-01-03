@@ -12,4 +12,205 @@
  *
  *= require_tree .
  *= require_self
+
  */
+ @import "foundation_and_overrides";
+ body{
+   background-color: #E1DCD9;
+ font-family: 'Josefin Sans', sans-serif;
+}
+i{
+  color: #E3E7D3;
+}
+.menu-hover-lines {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+}
+
+.menu-hover-lines li a {
+  padding: 0.75rem 0;
+  color: #E3E7D3;
+  position: relative;
+  margin-left: 1rem;
+}
+
+.menu-hover-lines li:first-child a {
+  // margin-left: 0;
+}
+
+.menu-hover-lines li.active > a {
+  background-color: transparent;
+}
+
+.menu-hover-lines a:before,
+.menu-hover-lines a::after {
+  height: 3px;
+  position: absolute;
+  content: '';
+  transition: all 0.35s ease;
+  background-color: #E3E7D3;
+  width: 0;
+}
+ul {
+    margin-left: 0;
+}
+.menu-hover-lines a::before {
+  top: 0;
+  left: 0;
+}
+
+.menu-hover-lines a::after {
+  bottom: 0;
+  right: 0;
+}
+
+.menu-hover-lines a:hover,
+.menu-hover-lines li.active > a {
+  color: #0a0a0a;
+  transition: all 0.35s ease;
+}
+.menu{
+  list-style-type: none;
+  display:  flex;
+  background:#3E442B;
+  padding:30px;
+}
+
+.menu-hover-lines a:hover::before,
+.menu-hover-lines .active a::before,
+.menu-hover-lines a:hover::after,
+.menu-hover-lines .active a::after {
+  width: 100%;
+}
+
+.mobile-app-icon-bar {
+  
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  background: #E1DCD9;
+}
+
+.mobile-app-icon-bar button {
+  padding: 1rem;
+  cursor: pointer;
+  background-color: #3E442B;
+  display: flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+
+}
+
+.mobile-app-icon-bar button svg,
+.mobile-app-icon-bar button i,
+.mobile-app-icon-bar button img {
+  font-size: 1rem;
+  max-height: 2rem;
+  max-width: 2rem;
+  // color:black;
+
+}
+
+body {
+  counter-reset: section;
+}
+
+.breadcrumb-counter-nav {
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  list-style: none;
+  background:  #3E442B;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item {
+  position: relative;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: .5rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item:hover {
+  background:  #E3E7D3;
+  color: #3E442B;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item::before {
+  counter-increment: section;
+  content: counter(section);
+  position: relative;
+  color: #3E442B;
+  // color: #1C0221;
+
+    background-color: #E3E7D3;
+
+  right: 0.8rem;
+  border-radius: 50%;
+  padding: 0.2em 0.55em;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item.current {
+    color: #3E442B;
+
+
+  // background: #E3E7D3;
+
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item.current::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  width: 0;
+  height: 0;
+  border-top: 1.75rem solid transparent;
+  border-bottom: 1.75rem solid transparent;
+  // border-left: 1rem solid  #3E442B;
+  z-index: 300;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item.current::before {
+  // background-color: #88a4bf;
+}
+
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item a {
+    color: #E3E7D3;
+    // opacity: .2;
+
+  font-size: 0.875rem;
+}
+.breadcrumb-counter-nav .breadcrumb-counter-nav-item :hover {
+    color:  #3E442B;
+
+  font-size: 0.875rem;
+}
+
+
+@media only screen and (max-width: 52em) {
+  .breadcrumb-counter-nav {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+button{
+  margin-bottom: 0;
+  background-color: #3E442B;
+}

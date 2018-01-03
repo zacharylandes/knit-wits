@@ -6,9 +6,43 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">  </head>
 
   <body>
+    <!-- mobile nav bar -->
+    <nav>
+
+<ul class="menu menu-hover-lines">
+  <li class="#"><a href="#">Home</a></li>
+  <li><a href="#">About Us</a></li>
+  <li><a href="#">Blog</a></li>
+  <li><a href="#">Services</a></li>
+</ul>
+</nav>
+<ul class="breadcrumb-counter-nav">
+  <li class="breadcrumb-counter-nav-item"><a href="#">Home</a></li>
+  <li class="breadcrumb-counter-nav-item current"><a href="#">items</a></li>
+  <li class="breadcrumb-counter-nav-item"><a href="#">Categories</a></li>
+    <button><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+</ul>
+
+
+
+<!-- /medium and larger nav bar -->
+
+
     <%= yield %>
+
+<div class="mobile-app-icon-bar">
+  <button><i class="fa fa-twitter" aria-hidden="true"></i></button>
+  <button><i class="fa fa-github" aria-hidden="true"></i></button>
+  <button><i class="fa fa-facebook" aria-hidden="true"></i></button>
+  <button><i class="fa fa-linkedin" aria-hidden="true"></i></button>
+</div>
+
+
+
   </body>
+
 </html>

@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
+$('.breadcrumb-counter-nav-item').click(function () {
+  $('.breadcrumb-counter-nav-item').removeClass('current');
+  $(this).addClass('current');
+});
