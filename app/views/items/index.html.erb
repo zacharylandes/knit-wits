@@ -1,4 +1,23 @@
+
+<div class="sort">
+  <%= form_tag(items_path, method: :get) do %>
+    <%= select_tag(:sort, options_for_select(sort_methods, params[:sort])) %>
+  <% end %>
+</div>
+
+<div class="all-items">
 <% @items.each do |item| %>
-<%= item.title %>
-<%= item.price %>
+  <div class="product-card">
+    <div class="product-card-thumbnail">
+      <%= link_to image_tag(asset_path(item.image)), item_path(item)  %>
+    </div>
+    <%= link_to item.title, item_path(item), class: "product-card-title" %></br>
+    <span class="product-card-price"><%= item.price_in_dollars %></span></br>
+    <%= button_to "Add to Cart"  %>
+  </div>
 <% end %>
+</div>
+
+<div class="paginate-container">
+  <%= will_paginate @items %>
+</div>

@@ -13,3 +13,122 @@
  *= require_tree .
  *= require_self
  */
+ @import "foundation_and_overrides";
+
+ .paginate-container {
+   display: flex;
+   justify-content: center;
+ }
+ $primary-color: #3E442b;
+ $pagination-circular-size: 14px; // controls font and circle size
+ $pagination-circular-color: $primary-color;
+ $pagination-circular-disabled-color: $secondary-color;
+ $pagination-circular-border-thickness: 1px;
+
+
+.pagination .current {
+  border: $pagination-circular-border-thickness solid $pagination-circular-color;
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  font-size: $pagination-circular-size;
+}
+
+.pagination .disabled {
+  border: $pagination-circular-border-thickness solid $pagination-circular-disabled-color;
+  padding: 0.285em 0.8em;
+  border-radius: 5000px;
+  font-size: $pagination-circular-size;
+}
+
+.pagination a {
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  border: $pagination-circular-border-thickness solid $pagination-circular-color;
+  font-size: $pagination-circular-size;
+}
+
+.pagination a:hover {
+  background-color: $secondary-color;
+}
+
+.pagination li:not(.disabled):hover a {
+  background: $pagination-circular-color;
+  color: $white;
+}
+
+.pagination li a {
+  transition: background 0.15s ease-in, color 0.15s ease-in;
+}
+
+
+ .sort {
+   display: flex;
+   flex-direction: row-reverse;
+   padding: 20px 20px 0 0;
+ }
+ .all-items {
+   display: flex;
+   justify-content: center;
+   flex-flow: row wrap;
+   padding: 20px;
+ }
+
+ .product-page {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   width: 800px;
+ }
+
+ .product-image {
+   padding: 30px;
+ }
+
+ .product-image img {
+   width: 400px;
+   border: 1px solid black;
+ }
+
+ .product-details {
+   padding: 30px;
+ }
+
+ .product-card {
+  background-color: $white;
+  border: 0.5px solid lightgray;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 15rem;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.product-card-thumbnail {
+  display: block;
+  position: relative;
+  align-items: center;
+  width: 180px;
+}
+
+.product-card-title {
+  color: #1C0221;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.product-card-price {
+  color: #1C0221;
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.product-card:hover {
+  transition: all 0.35s ease;
+  opacity: 1;
+  background-color: #E3E7D3;
+}
