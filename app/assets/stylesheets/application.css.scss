@@ -19,7 +19,7 @@
    display: flex;
    justify-content: center;
  }
-
+ $primary-color: #3E442b;
  $pagination-circular-size: 14px; // controls font and circle size
  $pagination-circular-color: $primary-color;
  $pagination-circular-disabled-color: $secondary-color;
@@ -112,6 +112,7 @@
 }
 
 .product-card-title {
+  color: #1C0221;
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1rem;
@@ -119,14 +120,8 @@
   margin-bottom: 0;
 }
 
-.product-card-desc {
-  color: darkgray;
-  display: block;
-  font-size: 0.85rem;
-}
-
 .product-card-price {
-  color: darken(darkgray,30%);
+  color: #1C0221;
   display: inline-block;
   font-size: 0.95rem;
   font-weight: 600;
@@ -135,5 +130,5 @@
 .product-card:hover {
   transition: all 0.35s ease;
   opacity: 1;
-  background-color: $primary-color;
+  background-color: #E3E7D3;
 }
