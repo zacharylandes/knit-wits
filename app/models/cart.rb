@@ -5,6 +5,10 @@ class Cart
     @contents = contents || Hash.new(0)
   end
 
+  def items
+    contents.keys
+  end
+
   def total_count
     contents.values.sum
   end
@@ -15,5 +19,9 @@ class Cart
 
   def add_item(id)
     contents[id.to_s] += 1
+  end
+
+  def remove_item(id)
+    contents.delete(id.to_s)
   end
 end
