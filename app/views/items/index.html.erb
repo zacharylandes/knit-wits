@@ -9,10 +9,11 @@
 <% @items.each do |item| %>
   <div class="product-card">
     <div class="product-card-thumbnail">
-      <a href="#"><img src="https://placehold.it/180x180"/></a>
+      <%= link_to image_tag(asset_path(item.image)), item_path(item)  %>
     </div>
-    <h2 class="product-card-title"><%= item.title %></a></h2>
-    <span class="product-card-price">$<%= (item.price/100) %></span>
+    <%= link_to item.title, item_path(item), class: "product-card-title" %></br>
+    <span class="product-card-price"><%= item.price_in_dollars %></span></br>
+    <%= link_to "Add to Cart"  %>
   </div>
 <% end %>
 </div>

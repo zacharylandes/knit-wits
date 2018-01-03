@@ -22,7 +22,7 @@
 
  $pagination-circular-size: 18px; // controls font and circle size
  $pagination-circular-color: $primary-color;
- $pagination-circular-disabled-color: lightgray;
+ $pagination-circular-disabled-color: $secondary-color;
  $pagination-circular-border-thickness: 1px;
 
 
@@ -45,6 +45,10 @@
   padding: 0.285em 0.8em;
   border: $pagination-circular-border-thickness solid $pagination-circular-color;
   font-size: $pagination-circular-size;
+}
+
+.pagination a:hover {
+  background-color: $secondary-color;
 }
 
 .pagination li:not(.disabled):hover a {
@@ -77,11 +81,14 @@
   text-align: center;
   max-width: 15rem;
   margin: 10px;
+  overflow: hidden;
 }
 
 .product-card-thumbnail {
   display: block;
   position: relative;
+  align-items: center;
+  width: 180px;
 }
 
 .product-card-title {
@@ -104,4 +111,10 @@
   font-size: 0.85rem;
   font-weight: 600;
   margin-top: 0.8rem;
+}
+
+.product-card:hover {
+  transition: all 0.35s ease;
+  opacity: 1;
+  background-color: $primary-color 0.5;
 }
