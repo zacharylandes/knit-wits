@@ -1,4 +1,22 @@
+
+<div class="sort">
+  <%= form_tag(items_path, method: :get) do %>
+    <%= select_tag(:sort, options_for_select(sort_methods, params[:sort])) %>
+  <% end %>
+</div>
+
+<div class="all-items">
 <% @items.each do |item| %>
-<%= item.title %>
-<%= item.price %>
+  <div class="product-card">
+    <div class="product-card-thumbnail">
+      <a href="#"><img src="https://placehold.it/180x180"/></a>
+    </div>
+    <h2 class="product-card-title"><%= item.title %></a></h2>
+    <span class="product-card-price">$<%= item.price/100 %></span>
+  </div>
 <% end %>
+</div>
+
+<div class="apple_pagination">
+  <%= will_paginate @items %>
+</div>

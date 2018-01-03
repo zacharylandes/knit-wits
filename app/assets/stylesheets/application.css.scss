@@ -13,3 +13,88 @@
  *= require_tree .
  *= require_self
  */
+ @import "foundation_and_overrides";
+
+ .apple_pagination {
+   background: #f1f1f1;
+   border: 1px solid #e5e5e5;
+   text-align: center;
+   padding: 1em;
+   cursor: default;
+   a, span {
+     padding: 0.2em 0.3em;
+   .disabled{
+     color: #aaaaaa;
+   }
+   .current {
+     font-style: normal;
+     font-weight: bold;
+     display: inline-block;
+     width: 1.4em;
+     height: 1.4em;
+     line-height: 1.5;
+     -moz-border-radius: 1em;
+     -webkit-border-radius: 1em;
+     border-radius: 1em;
+     text-shadow: rgba(white, .8) 1px 1px 1px;
+   }
+   }
+   a {
+     text-decoration: none;
+     color: black;
+     &:hover, &:focus{
+       text-decoration: underline;
+      }
+     }
+  }
+
+ .sort {
+   display: flex;
+   flex-direction: row-reverse;
+   padding: 20px 20px 0 0;
+ }
+ .all-items {
+   display: flex;
+   justify-content: space-around;
+   flex-flow: row wrap;
+   padding: 20px;
+ }
+
+ .product-card {
+  background-color: $white;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 15rem;
+  margin: 5px;
+}
+
+.product-card-thumbnail {
+  display: block;
+  position: relative;
+}
+
+.product-card-title {
+  font-family: 'Open sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.product-card-desc {
+  color: darkgray;
+  display: block;
+  font-family: 'Open sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+.product-card-price {
+  color: darken(darkgray,30%);
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
