@@ -20,6 +20,8 @@ describe 'visitor visits cart show page' do
 
       expect(page).to have_content("You have deleted #{@item.title} from your cart!")
 
+      expect(page).to have_link("#{@item.title}")
+
       within(".cart-contents") do
         expect(page).to_not have_content("#{@item.title}")
       end

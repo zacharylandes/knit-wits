@@ -18,7 +18,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.remove_item(item.id)
     session[:cart] = @cart.contents
-    flash.notice = "You have deleted #{item.title} from your cart!"
+    flash.notice = "You have deleted #{view_context.link_to(item.title,item_path(item))} from your cart!".html_safe
    redirect_to carts_path
   end
 end
