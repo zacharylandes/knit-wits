@@ -15,38 +15,47 @@
  */
  @import "foundation_and_overrides";
 
- .apple_pagination {
-   background: #f1f1f1;
-   border: 1px solid #e5e5e5;
-   text-align: center;
-   padding: 1em;
-   cursor: default;
-   a, span {
-     padding: 0.2em 0.3em;
-   .disabled{
-     color: #aaaaaa;
-   }
-   .current {
-     font-style: normal;
-     font-weight: bold;
-     display: inline-block;
-     width: 1.4em;
-     height: 1.4em;
-     line-height: 1.5;
-     -moz-border-radius: 1em;
-     -webkit-border-radius: 1em;
-     border-radius: 1em;
-     text-shadow: rgba(white, .8) 1px 1px 1px;
-   }
-   }
-   a {
-     text-decoration: none;
-     color: black;
-     &:hover, &:focus{
-       text-decoration: underline;
-      }
-     }
-  }
+ .paginate-container {
+   display: flex;
+   justify-content: center;
+ }
+
+ $pagination-circular-size: 18px; // controls font and circle size
+ $pagination-circular-color: $primary-color;
+ $pagination-circular-disabled-color: lightgray;
+ $pagination-circular-border-thickness: 1px;
+
+
+.pagination .current {
+  border: $pagination-circular-border-thickness solid $pagination-circular-color;
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  font-size: $pagination-circular-size;
+}
+
+.pagination .disabled {
+  border: $pagination-circular-border-thickness solid $pagination-circular-disabled-color;
+  padding: 0.285em 0.8em;
+  border-radius: 5000px;
+  font-size: $pagination-circular-size;
+}
+
+.pagination a {
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  border: $pagination-circular-border-thickness solid $pagination-circular-color;
+  font-size: $pagination-circular-size;
+}
+
+.pagination li:not(.disabled):hover a {
+  background: $pagination-circular-color;
+  color: $white;
+}
+
+.pagination li a {
+  transition: background 0.15s ease-in, color 0.15s ease-in;
+}
+
 
  .sort {
    display: flex;
@@ -55,7 +64,7 @@
  }
  .all-items {
    display: flex;
-   justify-content: space-around;
+   justify-content: center;
    flex-flow: row wrap;
    padding: 20px;
  }
@@ -67,7 +76,7 @@
   margin-bottom: 1.5rem;
   text-align: center;
   max-width: 15rem;
-  margin: 5px;
+  margin: 10px;
 }
 
 .product-card-thumbnail {
@@ -76,7 +85,6 @@
 }
 
 .product-card-title {
-  font-family: 'Open sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.45rem;
@@ -87,7 +95,6 @@
 .product-card-desc {
   color: darkgray;
   display: block;
-  font-family: 'Open sans', sans-serif;
   font-size: 0.85rem;
 }
 
