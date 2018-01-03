@@ -19,7 +19,9 @@
         <li><a href="#">Categories</a></li>
       </ul>
     </nav>
-
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: type %>
+    <% end %>
 
 
     <%= yield %>
