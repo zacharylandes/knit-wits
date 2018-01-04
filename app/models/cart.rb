@@ -25,8 +25,8 @@ class Cart
     contents.delete(id.to_s)
   end
 
-  def adjust_item(id)
-    contents[id.to_s] -= 1
+  def adjust_item(id, quantity)
+    contents[id.to_s] = quantity
   end
 
 

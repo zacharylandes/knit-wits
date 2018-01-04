@@ -22,11 +22,11 @@ describe "Visitor views their cart" do
       click_link "Cart"
 
 
-      fill_in "quantity", with: 2
+      fill_in "quantity", with: 4
 
       click_on "Save changes"
 
-      expect(page).to have_content("You now have 2 cool mittens in your cart!")
+      expect(page).to have_content("You now have 4 cool mittens in your cart!")
     end
     # it "visitor can add an amount to their cart" do
     #   visit items_path

@@ -9,8 +9,8 @@
   <td><%= item.title %></td>
   <td><%= item.price %></td>
   <td>
-  <% form_tag('/carts',  method: :put) %>
-    <%= number_field_tag :quantity, @cart.count_of(item.id) , min: -10, max:10 %>
+  <%= form_tag(carts_path(:item_id => item.id),  method: :put) %>
+    <%= number_field_tag :quantity, @cart.count_of(item.id) , min: 0 %>
   <%= submit_tag %>
   </td>
   <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
