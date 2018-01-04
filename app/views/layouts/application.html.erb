@@ -18,9 +18,9 @@
         <li><%= link_to 'Knits', items_path  %></li>
         <li><%= link_to 'Categories', categories_path  %></li>
         <li><%= link_to cart_path do %>
-                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                 <%= @cart.total_count %>
-               <% end %></li>
+           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+           <%= @cart.total_count %>
+         <% end %></li>
       </ul>
     </nav>
     <% flash.each do |type, message| %>
