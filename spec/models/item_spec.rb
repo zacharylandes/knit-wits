@@ -1,10 +1,21 @@
 describe Item do
   describe "validations" do
-
     it "sets item status to active by default" do
-      item = Item.new()
+      item = Item.new(title: "item",
+                      description: "description",
+                      price: 1000,
+                      image: "item_default.jpg",
+                      category: create(:category))
+
+      expect(item.status).to be_nil
+
+      item.save
+
+      item_saved = Item.find(item.id)
+
+      expect(item_saved.status).to eq("active")
     end
-    
+
     it "is valid with all attributes" do
       item = Item.new(title: "item",
                       description: "description",
