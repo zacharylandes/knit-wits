@@ -18,6 +18,7 @@ class Cart
   end
 
   def add_item(id)
+    contents[id.to_s] = 0 if contents[id.to_s].nil?
     contents[id.to_s] += 1
   end
 
