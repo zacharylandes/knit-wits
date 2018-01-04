@@ -7,7 +7,7 @@
     <td><%= item.title %></td>
     <td><%= item.price %></td>
     <td><%= @cart.count_of(item.id) %></td>
-    <td><p><%= @cart.item_subtotal(item.id) %></p></td>
+    <td><%= @cart.item_subtotal(item.id) %></td>
     <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
   <% end %>
   </table>
