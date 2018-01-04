@@ -4,7 +4,14 @@ class CartsController < ApplicationController
 
   def index
      @items = @cart.items.map {|item|Item.find(item.to_i)}
+     @total = @item
   end
+
+
+  # def update
+  #   item = Item.find(params[:item_id])
+  #   @cart.subtract_item(item.id)
+  # end
 
   def create
     item = Item.find(params[:item_id])
@@ -12,6 +19,14 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
     flash.notice = "You now have #{pluralize(@cart.count_of(item.id), item.title)} in your cart!"
     redirect_to items_path
+  end
+
+  def update
+    item = Item.find(params[:item_id])
+    @cart.subtract_item(item.id)
+    session[:cart] = @cart.contents
+    flash.notice = "You now have #{pluralize(@cart.count_of(item.id), item.title)} in your cart!"
+    redirect_to carts_path
   end
 
   def destroy

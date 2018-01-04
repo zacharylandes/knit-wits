@@ -7,7 +7,13 @@
 <% @items.each do |item| %>
   <td><%= item.title %></td>
   <td><%= item.price %></td>
-  <td><%= @cart.count_of(item.id) %></td>
+  <td><%= @cart.count_of(item.id) %>
+<% form_tag("/carts", method: :put) %>
+   <%= number_field_tag @cart.count_of(item.id), min: 0 %>
+   <%= submit_tag %>
+  </td>
   <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
 <% end %>
+
+
 </table>

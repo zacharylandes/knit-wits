@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   delete '/cart', to: "carts#destroy"
   resources :items, only: [:index, :show]
   resources :categories, only: [ :index, :show]
-  resources :carts, only: [:index, :create]
+  resources :carts
+  put   '/carts', to: "carts#update"
+  put 'update' => 'carts#update'
+  post 'remove_one' => 'carts#remove_one', as: :remove_one
   get '/', to: "items#index"
 end
