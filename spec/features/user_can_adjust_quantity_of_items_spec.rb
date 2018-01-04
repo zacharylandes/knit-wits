@@ -9,8 +9,8 @@ describe "Visitor views their cart" do
         click_button "Add to Cart"
 
         click_link "Cart"
+        expect(page).to have_selector("input[value='1']")
 
-      expect(page).to have_content("1")
     end
 
     it "visitor can change the quantity of items in a cart " do
@@ -21,11 +21,12 @@ describe "Visitor views their cart" do
 
       click_link "Cart"
 
-      save_and_open_page
 
       fill_in "quantity", with: 2
 
-      expect(page).to have_content("You now have 0 cool mittens in your cart!")
+      click_on "Save changes"
+
+      expect(page).to have_content("You now have 2 cool mittens in your cart!")
     end
     # it "visitor can add an amount to their cart" do
     #   visit items_path

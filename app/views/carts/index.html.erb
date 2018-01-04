@@ -5,15 +5,16 @@
   <th>Quantity</th>
   <th></th>
 <% @items.each do |item| %>
+<tr>
   <td><%= item.title %></td>
   <td><%= item.price %></td>
-  <td><%= @cart.count_of(item.id) %>
-<% form_tag("/carts", method: :put) %>
-  <%= label_tag :quantity %>
-   <%= number_field_tag :quantity, min: -10, max:10 %>
-   <%= submit_tag %>
+  <td>
+  <% form_tag('/carts',  method: :put) %>
+    <%= number_field_tag :quantity, @cart.count_of(item.id) , min: -10, max:10 %>
+  <%= submit_tag %>
   </td>
   <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
+</tr>
 <% end %>
 
 </table>
