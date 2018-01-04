@@ -313,3 +313,9 @@ td {
   border-width: 1px;
   border-color: $primary-color;
 }
+
+.log-in-form {
+  border: 1px solid $medium-gray;
+  padding: $form-spacing;
+  border-radius: $global-radius;
+}
