@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
-
+  helper_method :cart_total_price
 
   def index
      @items = @cart.items.map {|item|Item.find(item.to_i)}
@@ -29,5 +29,9 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
     flash.notice = "You have deleted #{view_context.link_to(item.title,item_path(item))} from your cart!".html_safe
    redirect_to carts_path
+  end
+
+  def cart_total_price
+    @cart.contents.map { |key, value| Item.find(key.to_i).price * value.to_i }.sum
   end
 end

@@ -25,9 +25,11 @@ class Cart
     contents.delete(id.to_s)
   end
 
+  def item_subtotal(price, id)
+    price * count_of(id).to_i
+  end
+
   def adjust_item(id, quantity)
     contents[id.to_s] = quantity
   end
-
-
 end

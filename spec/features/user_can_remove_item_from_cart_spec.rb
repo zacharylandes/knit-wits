@@ -1,5 +1,5 @@
 describe 'visitor visits cart show page' do
-  context 'items are in cart ' do
+  context 'items are in cart' do
     before(:each) do
       @item = create(:item)
     end
