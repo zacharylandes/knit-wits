@@ -16,5 +16,19 @@ describe 'user can view cart total' do
       expect(page).to have_content("2")
       expect(page).to have_content("#{total}")
     end
+
+    it 'user can decrease item, total changes' do
+      visit items_path
+      click_button "Add to Cart"
+      click_button "Add to Cart"
+      total = @item.price * 2
+
+      click_link "Cart"
+      #click here to adjust the item quantity in cart
+
+      expect(current_path).to eq(carts_path)
+      # expect(page).to have_content("1")
+      expect(page).to have_content("#{total}")
+    end
   end
 end

@@ -1,13 +1,19 @@
-  <table class="cart-contents">
-    <th>Item</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Subtotal</th>
-  <% @items.each do |item| %>
-    <td><%= item.title %></td>
-    <td><%= item.price %></td>
-    <td><%= @cart.count_of(item.id) %></td>
-    <td><%= @cart.item_subtotal(item.id) %></td>
-    <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
+<table class="cart-contents">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= item.price %></td>
+      <td><%= @cart.count_of(item.id) %></td>
+      <td> <%= number_field_tag 'quantity', nil, within: 1...10 %> </td>
+      <td><%= @cart.item_subtotal(item.id) %></td>
+      <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
+    </tr>
   <% end %>
-  </table>
+</table>
+<p>Knit Total Cost: <%= number_to_currency(@cart.cart_total_price) %>
