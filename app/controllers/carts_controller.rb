@@ -4,8 +4,6 @@ class CartsController < ApplicationController
 
   def index
      @items = @cart.items.map {|item|Item.find(item.to_i)}
-     @total = @item
-
   end
 
 
