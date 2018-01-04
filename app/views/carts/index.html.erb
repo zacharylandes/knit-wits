@@ -1,0 +1,13 @@
+
+<table class="cart-contents">
+  <th>Item</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th></th>
+<% @items.each do |item| %>
+  <td><%= item.title %></td>
+  <td><%= item.price %></td>
+  <td><%= @cart.count_of(item.id) %></td>
+  <td><%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %></td>
+<% end %>
+</table>

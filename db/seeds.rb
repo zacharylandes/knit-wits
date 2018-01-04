@@ -8,5 +8,5 @@
 category = Category.create(name: "Mittens", id: 2)
 item = Item.create!(title: 'Thrummed Mitts',
   description: "Super warm mitts with extra wooly bits inside",
-  price: 1000, image: "./assets/images/thrummed_mitts1.jpg",
+  price: 1000, image: "products/thrummed_mitts1.jpg",
   category_id: 2)

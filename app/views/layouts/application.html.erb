@@ -17,9 +17,12 @@
         <li class="#"><a href="#">Home</a></li>
         <li><a href="#">Knits</a></li>
         <li><a href="#">Categories</a></li>
+        <li><%= link_to "Cart", carts_path %></li>
       </ul>
     </nav>
-
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message.html_safe, class: type %>
+    <% end %>
 
 
     <%= yield %>
