@@ -1,6 +1,8 @@
 describe Item do
   describe "validations" do
-
+    it "sets item status to active by default" do
+      item = Item.new()
+    end
   end
 
   describe "relationships" do
