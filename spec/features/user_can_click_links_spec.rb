@@ -23,7 +23,7 @@ describe 'homepage' do
     it 'clicks on the cart ' do
       visit '/'
 
-      click_link 'Cart'
+      click_link ("0")
 
       expect(current_path).to eq(carts_path)
     end

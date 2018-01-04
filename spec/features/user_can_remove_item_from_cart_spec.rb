@@ -9,7 +9,8 @@ describe 'visitor visits cart show page' do
 
       click_button "Add to Cart"
 
-      click_link "Cart"
+      click_link ("1")
+
 
       expect(current_path).to eq(carts_path)
       within(".cart-contents") do
