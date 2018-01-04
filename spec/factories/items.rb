@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    title "cool mittens"
+    title "cool mitten"
     description "super warm"
     price 5000
     category
