@@ -25,11 +25,7 @@ class Cart
     contents.delete(id.to_s)
   end
 
-  def item_subtotal(id)
-    Item.find(id).price * count_of(id)
-  end
-
-  def cart_total_price
-    contents.map { |k,v| Item.find(k).price * v }.sum
+  def item_subtotal(price, id)
+    price * count_of(id)
   end
 end
