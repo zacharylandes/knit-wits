@@ -1,6 +1,9 @@
+<% if @category %>
+<h3><%= link_to "Categories", categories_path %> > <%= @category.name.capitalize %></h3>
+<% else %>
+<h3>All Knits</h3>
+<% end %>
 
-
-<i class="fa fa-cart-arrow-down fa-1x" aria-hidden="true"> </i>
 <div class="sort">
   <%= form_tag(items_path, method: :get) do %>
     <%= select_tag(:sort, options_for_select(sort_methods, params[:sort])) %>

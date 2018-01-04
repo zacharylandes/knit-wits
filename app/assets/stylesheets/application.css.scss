@@ -19,7 +19,9 @@
  $primary-color: #3E442b;
  $secondary-color: #BDC2BF;
 
-
+  .page{
+    min-height: 500px;
+  }
   .paginate-container {
     display: flex;
     justify-content: center;

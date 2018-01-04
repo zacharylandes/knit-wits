@@ -17,15 +17,20 @@
         <li><%= link_to 'Home', items_path  %></li>
         <li><%= link_to 'Knits', items_path  %></li>
         <li><%= link_to 'Categories', categories_path  %></li>
-        <li><%= link_to "Cart", carts_path %></li>
+        <li><%= link_to carts_path do %>
+                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                 <%= @cart.total_count %>
+               <% end %></li>
       </ul>
     </nav>
     <% flash.each do |type, message| %>
       <%= content_tag :div, message.html_safe, class: type %>
     <% end %>
 
+    <div class="page">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
     <footer class="mobile-app-icon-bar">
       <button><a href = ""><i class="fa fa-twitter" aria-hidden="true"></i></button>
       <button><i class="fa fa-github" aria-hidden="true"></i></button>
