@@ -1,15 +1,35 @@
-describe "user can view all items in certain category" do
-  it "shows all items in category to user" do
-    category1 = create(:category)
-    item1 = create(:item, category_id: 1) #sweater
-    item2 = create(:item, category_id: 1) #sweater
-    category2 = create(:category)
-    item3 = create(:item, category_id: 2) #mittens
-    item4 = create(:item, category_id: 2) #mittens
+describe "User visits category index" do
+  before(:each) do
+    @category1 = create(:category, name: "sweater")
+    @item1 = create(:item, category_id: 1)
+    @item2 = create(:item, category_id: 1)
+    @category2 = create(:category, name: "mitten")
+    @item3 = create(:item, category_id: 2)
+    @item4 = create(:item, category_id: 2)
+  end
 
-    visit category_path(category1)
+  describe "user can view all items in certain category" do
+    it "shows all items in category to user" do
+      visit category_path(@category1.slug)
 
-    expect(page).to have_content(item1.title)
-    expect(page).to have_content(item1.price_in_dollars)
+      expect(current_path).to eq("/categories/#{@category1.slug}")
+
+      expect(page).to have_content(@category1.name.capitalize)
+      expect(page).to have_content(@item1.title)
+      expect(page).to have_content(@item1.price_in_dollars)
+    end
+  end
+
+  describe "user can click on category link to go to that category show page" do
+    it "is redirected to that category page" do
+      visit categories_path
+
+      click_link @category2.name.capitalize
+
+      expect(current_path).to eq("/categories/#{@category2.slug}")
+
+      expect(page).to have_content(@category2.name.capitalize)
+      expect(page).to have_content(@item3.title)
+    end
   end
 end

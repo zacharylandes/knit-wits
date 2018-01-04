@@ -3,5 +3,6 @@ FactoryBot.define do
     sequence :name do |n|
       "sweater#{n}"
     end
+    image "image.jpeg"
   end
 end
