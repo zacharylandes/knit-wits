@@ -17,7 +17,7 @@
         <li><%= link_to 'Home', items_path  %></li>
         <li><%= link_to 'Knits', items_path  %></li>
         <li><%= link_to 'Categories', categories_path  %></li>
-        <li><%= link_to "Cart", carts_path %></li>
+        <li><%= link_to "Cart (#{@cart.total_count})", carts_path %></li>
       </ul>
     </nav>
     <% flash.each do |type, message| %>
