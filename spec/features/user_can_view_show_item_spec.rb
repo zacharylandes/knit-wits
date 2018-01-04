@@ -28,8 +28,8 @@ describe "User visits item show page" do
 
     visit item_path(item)
 
-    save_and_open_page
-
+    expect(item.active?).to be_falsy
+    expect(page).to have_content("Item Retired")
     expect(page).to have_button "Add to Cart", disabled: true
   end
 
@@ -38,6 +38,8 @@ describe "User visits item show page" do
 
     visit item_path(item)
 
+    expect(item.active?).to be_falsy
+    expect(page).to have_content("Out of Stock")
     expect(page).to have_button "Add to Cart", disabled: true
   end
 end

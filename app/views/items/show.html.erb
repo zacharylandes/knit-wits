@@ -5,11 +5,10 @@
   <div class="product-details">
     <h2><%= @item.title %></h2>
     <h3><%= @item.price_in_dollars %></h3>
-    <% byebug %>
-    <%= button_to "Add to Cart", carts_path(item_id: @item.id), :disabled => !@item.active? %>
-    <% if @item.status == "retired" %>
+    <%= button_to "Add to Cart", carts_path(item_id: @item.id), disabled: !@item.active? %>
+    <% if @item.retired? %>
       <p>Item Retired</p>
-    <% elsif @item.status == "out_of_stock" %>
+    <% elsif @item.out_of_stock? %>
       <p>Out of Stock</p>
     <% end %>
     <p><%= @item.description %></p>
