@@ -43,5 +43,13 @@ describe Cart do
         expect(cart.contents).to eq("1"=>1)
       end
     end
+    describe '#adjust_item' do
+      it 'can adjust item amount' do
+        subject.adjust_item(1,4)
+
+        expect(subject.contents).to eq({"1"=>4, "4"=>3})
+
+      end
+    end
   end
 end

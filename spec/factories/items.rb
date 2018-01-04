@@ -5,5 +5,6 @@ FactoryBot.define do
     price 5000
     category
     image "item_default.jpg"
+    status 1
   end
 end

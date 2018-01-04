@@ -26,8 +26,6 @@ describe 'visitor visits cart show page' do
         expect(page).to_not have_content("#{@item.title}")
       end
 
-
-
     end
   end
 end
