@@ -25,7 +25,7 @@ describe 'homepage' do
 
       click_link ("0")
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
     end
     describe '#footer'do
       it 'clicks the facebook link' do

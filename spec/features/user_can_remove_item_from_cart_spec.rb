@@ -12,7 +12,7 @@ describe 'visitor visits cart show page' do
       click_link ("1")
 
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       within(".cart-contents") do
         expect(page).to have_content("#{@item.title}")
       end

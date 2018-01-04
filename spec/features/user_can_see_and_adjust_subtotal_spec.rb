@@ -13,7 +13,7 @@ describe 'user can view cart total' do
       click_link ("2")
 
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to have_content("#{total}")
     end
 
@@ -29,7 +29,7 @@ describe 'user can view cart total' do
       click_on "Save changes"
 
       expect(page).to have_content(4)
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to have_content("Knit Total Cost: $200.00")
     end
   end
