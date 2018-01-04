@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :category do
-    name "sweater"
+    sequence :name do |n|
+      "sweater#{n}"
+    end
   end
 end
