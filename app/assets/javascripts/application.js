@@ -11,7 +11,5 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require foundation
 //= require turbolinks
 //= require_tree .
-//= require foundation
