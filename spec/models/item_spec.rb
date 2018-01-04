@@ -7,13 +7,7 @@ describe Item do
                       image: "item_default.jpg",
                       category: create(:category))
 
-      expect(item.status).to be_nil
-
-      item.save
-
-      item_saved = Item.find(item.id)
-
-      expect(item_saved.status).to eq("active")
+      expect(item.status).to eq("active")
     end
 
     it "is valid with all attributes" do
@@ -81,6 +75,14 @@ describe Item do
       item = create(:item, price: 5000)
 
       expect(item.price_in_dollars). to eq("$50.00")
+    end
+
+    it "#active?" do
+      active_item = create(:item, price: 5000, status: 1)
+      inactive_item = create(:item, price: 5000, status: 0)
+
+      expect(active_item.active?).to be_truthy
+      expect(inactive_item.active?).to be_falsy
     end
   end
 end

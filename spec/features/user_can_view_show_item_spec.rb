@@ -8,4 +8,36 @@ describe "User visits item show page" do
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price_in_dollars)
   end
+
+  it "can add item to cart if item status is active" do
+    item = create(:item)
+
+    visit item_path(item)
+
+    click_button "Add to Cart"
+
+    expect(page).to have_content("You now have 1 #{item.title} in your cart!")
+
+    click_button "Add to Cart"
+
+    expect(page).to have_content("You now have 2 #{item.title}s in your cart!")
+  end
+
+  it "cannot add item to cart if item status is retired" do
+    item = create(:item, status: 0)
+
+    visit item_path(item)
+
+    save_and_open_page
+
+    expect(page).to have_button "Add to Cart", disabled: true
+  end
+
+  it "cannot add item to cart if item status is out_of_stock" do
+    item = create(:item, status: 2)
+
+    visit item_path(item)
+
+    expect(page).to have_button "Add to Cart", disabled: true
+  end
 end
