@@ -2,8 +2,8 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
   helper_method :cart_total_price
 
-  def index
-     @items = @cart.items.map {|item|Item.find(item.to_i)}
+  def show
+    @items = @cart.items.map {|item|Item.find(item.to_i)}
   end
 
 
@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     @cart.adjust_item(params[:item_id], params[:quantity])
     session[:cart] = @cart.contents
     flash.notice = "You now have #{pluralize(@cart.count_of(item.id), item.title)} in your cart!"
-    redirect_to carts_path
+    redirect_to cart_path
   end
 
   def destroy
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
     @cart.remove_item(item.id)
     session[:cart] = @cart.contents
     flash.notice = "You have deleted #{view_context.link_to(item.title,item_path(item))} from your cart!".html_safe
-   redirect_to carts_path
+    redirect_to cart_path
   end
 
   def cart_total_price

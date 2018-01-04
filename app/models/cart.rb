@@ -31,6 +31,6 @@ class Cart
   end
 
   def adjust_item(id, quantity)
-    contents[id.to_s] = quantity
+    contents[id.to_s] = quantity.to_i
   end
 end

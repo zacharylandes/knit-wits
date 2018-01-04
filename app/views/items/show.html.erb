@@ -5,7 +5,7 @@
   <div class="product-details">
     <h2><%= @item.title %></h2>
     <h3><%= @item.price_in_dollars %></h3>
-    <%= button_to "Add to Cart", carts_path(item_id: @item.id), disabled: !@item.active? %>
+    <%= button_to "Add to Cart", cart_path(item_id: @item.id), disabled: !@item.active? %>
     <% if @item.retired? %>
       <p>Item Retired</p>
     <% elsif @item.out_of_stock? %>

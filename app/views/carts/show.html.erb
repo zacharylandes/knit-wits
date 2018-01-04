@@ -1,5 +1,6 @@
 <table class="cart-contents">
     <th>Knit</th>
+    <th></th>
     <th>Price</th>
     <th>Quantity</th>
     <th>Subtotal</th>
@@ -7,19 +8,21 @@
   <% @items.each do |item| %>
   <tr>
     <td class="product-card-thumbnail">
-          <%= link_to image_tag(asset_path(item.image)), item_path(item)  %><br/>
-          <%= item.title %></td>
+      <%= link_to image_tag(asset_path(item.image)), item_path(item)  %>
+    </td>
+    <td><h4><%= item.title %></h4><%= item.description %></td>
     <td class="cart-item-price"><%= item.price %></td>
     <td class="cart-item-quantity">
-    <%= form_tag(carts_path(:item_id => item.id),  method: :put) %>
-    <%= number_field_tag :quantity, @cart.count_of(item.id), min: 0 , class: "update"%><br/>
-    <%= submit_tag "Update Quantity"%><br/>
-    <%= button_to "Remove from Cart", cart_path(item_id: item.id), method: :delete %>
+        <%= form_tag(cart_path(:item_id => item.id),  method: :put) %>
+        <%= number_field_tag :quantity, @cart.count_of(item.id), min: 0, class: "update"%><br/>
+        <%= submit_tag "Update"%><br/>
     </td>
     <td class="cart-item-subtotal"><%= @cart.item_subtotal(item.price, item.id) %></td>
+    <td><%= button_to "Remove", cart_path(item_id: item.id), method: :delete %> </td>
   </tr>
   <% end %>
   <tr>
+    <td></td>
     <td></td>
     <td></td>
     <td class="cart-item-total">Knit Total Cost:</td>

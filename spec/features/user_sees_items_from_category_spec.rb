@@ -12,7 +12,7 @@ describe "User visits category index" do
     it "shows all items in category to user" do
       visit category_path(@category1.slug)
 
-      expect(current_path).to eq("/categories/#{@category1.slug}")
+      expect(current_path).to eq("/#{@category1.slug}")
 
       expect(page).to have_content(@category1.name.capitalize)
       expect(page).to have_content(@item1.title)
@@ -26,7 +26,7 @@ describe "User visits category index" do
 
       click_link @category2.name.capitalize
 
-      expect(current_path).to eq("/categories/#{@category2.slug}")
+      expect(current_path).to eq("/#{@category2.slug}")
 
       expect(page).to have_content(@category2.name.capitalize)
       expect(page).to have_content(@item3.title)

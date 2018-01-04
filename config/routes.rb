@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: "items#index"
-  put '/carts', to: "carts#update"
+  put '/cart', to: "carts#update"
   delete '/cart', to: "carts#destroy"
-  resources :carts, only: [:index, :create]
+  get '/cart', to: "carts#show"
+  post '/cart', to: "carts#create"
   resources :items, only: [:index, :show]
-  resources :categories, only: [ :index, :show]
-
+  resources :categories, only: [ :index]
+  get "/:category", to: "categories#show", as: "category"
 end
