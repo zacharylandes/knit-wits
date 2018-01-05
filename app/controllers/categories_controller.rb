@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by(slug: params[:id])
+    @category = Category.find_by(slug: params[:category])
     @items = @category.items.paginate(:page => params[:page], :per_page => 15)
     render "items/index"
   end

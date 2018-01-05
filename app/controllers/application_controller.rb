@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart
 
-  helper_method :sort_methods, :current_user, :current_admin?
+  helper_method :sort_methods, :current_user, :current_admin?, :logged_in?
 
   def sort_methods
     [
@@ -13,12 +13,18 @@ class ApplicationController < ActionController::Base
     ]
   end
 
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id] && User.exists?(id: session[:user_id])
   end
 
   def current_admin?
     current_user && current_user.admin?
+
+  def logged_in?
+    !current_user.nil?
+  end
+
   end
 
     private

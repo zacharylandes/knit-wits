@@ -18,7 +18,7 @@
     </div>
     <%= link_to item.title, item_path(item), class: "product-card-title" %></br>
     <span class="product-card-price"><%= item.price_in_dollars %></span></br>
-    <%= button_to "Add to Cart", carts_path(item_id: item.id), :disabled => !item.active? %>
+    <%= button_to "Add to Cart", cart_path(item_id: item.id), :disabled => !item.active? %>
   </div>
 <% end %>
 </div>

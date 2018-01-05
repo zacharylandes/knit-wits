@@ -17,10 +17,15 @@
         <li><%= link_to 'Home', items_path  %></li>
         <li><%= link_to 'Knits', items_path  %></li>
         <li><%= link_to 'Categories', categories_path  %></li>
-        <li><%= link_to carts_path do %>
+        <li><%= link_to cart_path do %>
                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                  <%= @cart.total_count %>
                <% end %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
     </nav>
     <% flash.each do |type, message| %>
