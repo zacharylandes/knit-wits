@@ -29,3 +29,9 @@
     <td class="cart-item-total"><%= number_to_currency(cart_total_price/100) %></td>
   </tr>
 </table>
+
+<% if logged_in? %>
+  <%= link_to "Checkout"%>
+<% else %>
+  <%= link_to "Login or Create Account to Checkout" %>
+<% end %>
