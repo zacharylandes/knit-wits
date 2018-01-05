@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
   belongs_to :category
 
-  validates_presence_of :title, :status, :description, :price
+  validates_presence_of :title, :status, :description,:price
 
   enum status: [:retired, :active, :out_of_stock]
 
