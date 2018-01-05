@@ -10,5 +10,20 @@ describe "user sees login button on root page" do
 
     click_link "Login"
     expect(current_path).to eq("/login")
-  end 
+  end
+
+  it "should see the form to login" do
+    user = create(:user)
+
+    visit "/login"
+
+    fill_in "username", with: user.username
+    fill_in "password", with: user.password
+
+    click_on "Log In"
+
+    expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("Logged in as #{user.username}")
+    # expect(page).to have_content("Logout")
+  end
 end
