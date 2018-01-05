@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-<<<<<<< HEAD
   def new
   end
 
@@ -18,11 +17,8 @@ class SessionsController < ApplicationController
     end
   end
 
-=======
-
   def destroy
     session[:user_id] = nil
-    redirect_to items_path
+    redirect_to root_path
   end
->>>>>>> max-user
 end

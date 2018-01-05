@@ -15,14 +15,14 @@ describe "Visits cart page" do
       expect(page).to have_link("Login or Create Account to Checkout")
     end
 
-    xit "clicks on create accound and creates an account" do
+    it "clicks on create accound and creates an account" do
       visit cart_path
 
       click_link "Login or Create Account to Checkout"
-
+      save_and_open_page
       fill_in :username, with: @user.username
       fill_in :password, with: @user.password
-      click_on "Log In"
+      click_on "Log Me In"
 
       visit cart_path
 

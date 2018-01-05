@@ -1,5 +1,5 @@
 describe "Signed in user can logout" do
-  xit "by clicking logout button in navigation bar" do
+  it "by clicking logout button in navigation bar" do
     @user = create(:user)
     visit '/login'
 
