@@ -4,7 +4,7 @@ FactoryBot.define do
     description "super warm"
     price 5000
     category
-    image "item_default.jpg"
+    image "image2.jpeg"
     status 1
   end
 end
