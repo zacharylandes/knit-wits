@@ -1,10 +1,15 @@
 
-<div class = "idea-form">
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>
+<div class='login-page'>
+  <div class='form'>
+    <div class='log-in-form'>
+      <h2>Create an account</h2>
+      <%= form_for @user do |f| %>
+      <%= f.label :username %><br/>
+      <%= f.text_field :username, placeholder: :username %><br/>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password, placeholder: :password %><br/>
+      <%= f.submit "Register", class: :submit %>
+      <% end %>
+    </div>
+  </div>
 </div>
