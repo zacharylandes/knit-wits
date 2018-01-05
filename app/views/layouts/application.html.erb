@@ -21,6 +21,11 @@
                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                  <%= @cart.total_count %>
                <% end %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
     </nav>
     <% flash.each do |type, message| %>
