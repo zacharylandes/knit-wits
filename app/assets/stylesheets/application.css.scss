@@ -81,7 +81,7 @@
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    padding: 20px;
+
   }
 
   .product-page {
@@ -343,4 +343,9 @@ button{
 .create-account {
   padding: 20px;
   text-align: center;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
 }

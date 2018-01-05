@@ -28,12 +28,12 @@ describe 'homepage' do
 
       expect(current_path).to eq(categories_path)
     end
-    it 'clicks on the home button' do
+    it 'clicks on the logo button' do
       visit '/categories'
 
-      click_link 'Home'
+      click_link 'Knitwits'
 
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq("/")
     end
     it 'clicks on the cart ' do
       visit '/'
