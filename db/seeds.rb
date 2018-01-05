@@ -15,14 +15,14 @@ cowls = Category.create(name: "Cowls", image: "products/blue_shawl1.JPG")
 Item.create!(title: 'Thrummed Mitt',
   description: "Super warm mitts with extra wooly bits inside",
   price: 1000,
-  image: "products/thrummed_mitts1.jpg",
+  image: Rails.root.join("app/assets/images/products/thrummed_mitts1.jpg").open,
   category: mittens,
   status: 1)
 
 Item.create!(title: "Anna's Favorite",
   description: "Purple wooly hat perfect for a newborn",
   price: 1000,
-  image: "products/anna_hat.JPG",
+  image: Rails.root.join("app/assets/images/products/products/anna_hat.JPG").open,
   category: hats,
   status: 1)
 
