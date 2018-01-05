@@ -81,7 +81,6 @@
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-
   }
 
   .product-page {
@@ -348,4 +347,23 @@ button{
 .welcome-section {
   display: flex;
   flex-direction: column;
+}
+
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: center;
+  text-align: center;
+  background-color: $primary-color;
+}
+
+.footer-profile {
+  width: 150px;
+  background-color: $secondary-color;
+  border: 1px solid $secondary-color;
+  box-shadow: 2px 2px 2px $secondary-color;
+  margin: 10px;
+  padding: 10px;
 }
