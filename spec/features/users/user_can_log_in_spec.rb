@@ -20,7 +20,7 @@ describe "user sees login button on root page" do
     fill_in "username", with: "Max"
     fill_in "password", with: '12345'
 
-    click_on "Log Me In"
+    click_on "Log In"
 
     expect(current_path).to eq("/dashboard")
     expect(page).to have_content("Logged in as #{user.username}")

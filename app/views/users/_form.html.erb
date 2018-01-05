@@ -1,10 +1,12 @@
 <div class='login-page'>
   <div class='form'>
     <h1>Create an account</h1>
-    <div class='login-form'>
+    <div class='log-in-form'>
       <%= form_for @user do |f| %>
-      <%= f.text_field :username, placeholder: :username %>
-      <%= f.password_field :password, placeholder: :password %>
+      <%= f.label :username %><br/>
+      <%= f.text_field :username, placeholder: :username %><br/>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password, placeholder: :password %><br/>
       <%= f.submit "Register", class: :submit %>
       <% end %>
     </div>

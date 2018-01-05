@@ -334,6 +334,13 @@ button{
 
 .log-in-form {
   border: 1px solid $secondary-color;
+  box-shadow: 2px 2px 2px $secondary-color;
+  line-height: 25px;
   padding: 20px;
   border-radius: 20px;
+}
+
+.create-account {
+  padding: 20px;
+  text-align: center;
 }

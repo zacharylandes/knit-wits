@@ -22,7 +22,7 @@ describe "Visits cart page" do
 
       fill_in :username, with: @user.username
       fill_in :password, with: @user.password
-      click_on "Log Me In"
+      click_on "Log In"
 
       visit cart_path
 
