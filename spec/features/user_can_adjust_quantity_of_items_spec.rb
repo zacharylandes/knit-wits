@@ -20,7 +20,7 @@ describe "Visitor views their cart" do
 
       click_link ("1")
 
-      fill_in "quantity", with: 4
+      fill_in "item[quantity]", with: 4
 
       click_on "Update"
 

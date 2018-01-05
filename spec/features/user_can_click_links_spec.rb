@@ -1,5 +1,20 @@
 describe 'homepage' do
   describe '#navigation' do
+    it "has log in button if not logged in" do
+      visit '/'
+
+      expect(page).to have_link("Login")
+    end
+
+    it "has log out button if logged in" do
+      @user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit '/'
+
+      expect(page).to have_link("Logout")
+    end
+
     it 'clicks on the knits button' do
       visit '/'
       click_link 'Knits'

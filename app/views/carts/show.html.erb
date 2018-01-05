@@ -13,9 +13,13 @@
     <td><h4><%= item.title %></h4><%= item.description %></td>
     <td class="cart-item-price"><%= item.price %></td>
     <td class="cart-item-quantity">
-        <%= form_tag(cart_path(:item_id => item.id),  method: :put) %>
-        <%= number_field_tag :quantity, @cart.count_of(item.id), min: 0, class: "update"%><br/>
-        <%= submit_tag "Update"%><br/>
+      <%= form_for item, {method: :put, url: cart_path(item_id: item.id)} do |f| %>
+        <%= f.number_field :quantity,
+                           {value: @cart.count_of(item.id),
+                            min: 0,
+                            class: "update"} %><br/>
+        <%= f.submit "Update" %>
+      <% end %>
     </td>
     <td class="cart-item-subtotal"><%= @cart.item_subtotal(item.price, item.id) %></td>
     <td><%= button_to "Remove", cart_path(item_id: item.id), method: :delete %> </td>
