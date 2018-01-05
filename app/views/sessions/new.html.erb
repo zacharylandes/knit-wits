@@ -1,10 +1,15 @@
-<form class="log-in-form">
-  <h4 class="text-center">Log in to your account</h4>
-  <label>Username
-    <input type="username" placeholder="Username">
-  </label>
-  <label>Password
-    <input type="password" placeholder="Password">
-  </label>
-  <p><input type="submit" class="button expanded" value="Log in"></input></p>
-</form>
+<div class='login-page'>
+  <div class='form'>
+    <h1>Log In to Knit Wits</h1>
+    <div class='login-form'>
+      <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: "username" %>
+      <%= f.label:password %>
+      <%= f.password_field :password, placeholder: 'password' %>
+      <%= f.submit "Log Me In" %>
+      <% end %>
+      <%= link_to "Create Account", new_user_path %>
+    </div>
+  </div>
+</div>

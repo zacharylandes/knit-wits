@@ -27,13 +27,14 @@ describe 'homepage' do
 
       expect(current_path).to eq(carts_path)
     end
+
     describe '#footer'do
       it 'clicks the facebook link' do
         visit '/'
 
-        page.should have_css('.fa-facebook')
-        page.should have_css('.fa-twitter')
-        page.should have_css('.fa-github')
+        expect(page).to have_css('.fa-facebook')
+        expect(page).to have_css('.fa-twitter')
+        expect(page).to have_css('.fa-github')
       end
     end
   end
