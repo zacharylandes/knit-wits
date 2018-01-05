@@ -51,15 +51,6 @@ describe Item do
       expect(item).to be_invalid
     end
 
-    it "is invalid without an image" do
-      item = Item.new(title: "item",
-                      description: "description",
-                      price: 1000,
-                      category: create(:category),
-                      status: 1)
-
-      expect(item).to be_invalid
-    end
 
     it "is invalid with a category" do
       item = Item.new(title: "item",

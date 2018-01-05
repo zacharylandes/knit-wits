@@ -9,7 +9,7 @@ describe User do
 
   click_on "Register"
 
-  expect(page).to have_content("Welcome, funbucket13!")
+  expect(page).to have_content("Logged in as funbucket13")
     end
   end
 
