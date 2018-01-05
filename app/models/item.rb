@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   belongs_to :category
   validates_presence_of :title, :status, :description, :image, :price
 
