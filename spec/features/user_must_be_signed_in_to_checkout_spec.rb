@@ -19,7 +19,7 @@ describe "Visits cart page" do
       visit cart_path
 
       click_link "Login or Create Account to Checkout"
-      save_and_open_page
+
       fill_in :username, with: @user.username
       fill_in :password, with: @user.password
       click_on "Log Me In"
