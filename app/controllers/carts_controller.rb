@@ -12,7 +12,7 @@ class CartsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     flash.notice = "You now have #{pluralize(@cart.count_of(item.id), item.title)} in your cart!"
-    redirect_to item_path(item)
+    redirect_to cart_path
   end
 
   def update
