@@ -5,7 +5,7 @@ describe "Signed in user can logout" do
 
     fill_in :username, with: @user.username
     fill_in :password, with: @user.password
-    click_on "Log In"
+    click_on "Log Me In"
 
     visit '/'
 
