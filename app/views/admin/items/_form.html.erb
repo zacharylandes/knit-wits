@@ -1,0 +1,19 @@
+<div class = 'forms'>
+  <%= form_for [:admin, @item], html: { multipart: true } do |f| %>
+    <div class="field">
+      <p>  <%= f.label :title %></p>
+      <p>  <%= f.text_field :title %></p>
+      <p>  <%= f.label :description %></p>
+      <p>  <%= f.text_field :description %></p>
+      <p>  <%= f.label :price %></p>
+      <p>  <%= f.text_field :price, :class => 'price', :value => (number_with_precision(@item.price, :precision => 2)) %></p>
+      <p>  <%= f.label :status %></p>
+      <p>  <%= f.select :status, ['retired', 'active', 'out_of_stock'] %></p>
+      <p>  <%= f.label :image %><br></p>
+      <p>  <%= f.file_field :image %></p>
+      <p><%= f.label :category %></p>
+      <p><%= f.collection_select :category_id, @category,:id,:name,{prompt: true}%></p>
+      <p>  <%= f.submit %></p>
+    </div>
+  <% end %>
+</div>

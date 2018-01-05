@@ -1,21 +1,35 @@
 
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Items.all
+    @item = Item.new
+    @items = Item.all
+    @category =Category.all
   end
 
   def new
-    @item = Items.new
+    @item = Item.new
   end
 
   def create
     @item =Item.new(item_params)
     if @item.save!
-      redirect_to admin_dashboard_path
+      redirect_to admin_items_path
     end
   end
 
   def show
+    redirect_to admin_items_path
+  end
+
+  def edit
+    @category = Category.all
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    flash[:success] = "item updated!"
     redirect_to admin_items_path
   end
 

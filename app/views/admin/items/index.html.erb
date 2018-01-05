@@ -1,0 +1,21 @@
+
+<%= render partial: "form" %>
+
+  <div class = "item">
+    <% @items.each do |item| %>
+      <p> <%= link_to "#{item.title}", item_path(item) %></p>
+      <p> <%= item.description %></p>
+      <p> <%= item.price %></p>
+      <p> <%= item.status %></p>
+      <%= form_for [:admin, item] do |f| %>
+      <p>  <%= f.label :status %></p>
+      <p>  <%= f.select :status, ['retired', 'active', 'out_of_stock'] %></p>
+      <p>  <%= f.submit %></p>
+      <% end %>
+      <p><%=link_to "Edit", edit_admin_item_path(item)  %></p>
+
+      <strong>Image:</strong>
+      <%= image_tag item.image.url unless item.image.url.nil? %>
+    <% end %>
+  </div>
+</div>
