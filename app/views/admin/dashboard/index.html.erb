@@ -17,9 +17,13 @@
       <p>  <%= f.submit %></p>
     </div>
   <% end %>
+
 <div class = "item">
 <p>
   <% @items.each do |item| %>
+  <p> <%= item.title %></p>
+  <p> <%= item.description %></p>
+  <p> <%= item.price %></p>
   <strong>Image:</strong>
   <%= image_tag item.image.url unless item.image.url.nil? %>
 </p>
