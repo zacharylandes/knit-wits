@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_states
 
   def new
     @user = User.new
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :street, :city, :state, :zipcode, :full_name)
+  end
+
+  def set_states
+    @states = User.states.keys
   end
 end

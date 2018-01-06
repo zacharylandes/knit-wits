@@ -1,12 +1,12 @@
 describe "User tries to visit admin dashboard" do
   context "as admin" do
     it 'can see dashboard' do
-      User.create!(username: "Max", password: '12345', role:1)
+      admin = create(:admin)
 
       visit "/login"
 
-      fill_in "username", with: "Max"
-      fill_in "password", with: '12345'
+      fill_in "username", with: "#{admin.username}"
+      fill_in "password", with: "#{admin.password}"
 
       click_on "Log In"
 

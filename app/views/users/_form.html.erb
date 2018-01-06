@@ -8,7 +8,17 @@
       <%= f.text_field :username, placeholder: :username %><br/>
       <%= f.label :password %><br/>
       <%= f.password_field :password, placeholder: :password %><br/>
-      <%= f.submit "Register", class: :submit %>
+      <%= f.label :full_name %><br/>
+      <%= f.text_field :full_name, placeholder: :full_name %><br/>
+      <%= f.label :street %><br/>
+      <%= f.text_field :street, placeholder: :street %><br/>
+      <%= f.label :city %><br/>
+      <%= f.text_field :city, placeholder: :city %><br/>
+      <%= f.label :state %><br/>
+      <%= f.select(:state, @states) %><br/>
+      <%= f.label :zipcode %><br/>
+      <%= f.text_field :zipcode, placeholder: :zipcode %><br/>
+      <%= f.submit class: :submit %>
       <% end %>
     </div>
   </div>
