@@ -2,7 +2,7 @@
 class Admin::ItemsController < ApplicationController
   def index
     @item = Item.new
-    @items = Item.all
+    @items = Item.all.paginate(:page => params[:page], :per_page => 15)
     @category =Category.all
   end
 

@@ -42,7 +42,7 @@ describe "admin can create items " do
         expect(page).to have_content("the warmest")
         expect(page).to have_content(2.00)
 
-        within(:css, '.item')do
+        within(:css, '.all-items')do
           page.find('img')['src'].should have_content 'image.jpeg'
         end
       end
