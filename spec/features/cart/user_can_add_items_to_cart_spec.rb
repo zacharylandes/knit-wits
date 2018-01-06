@@ -12,7 +12,7 @@ describe "Visitor sees item they like" do
     end
 
     it "user sees message that item is added to cart" do
-              visit items_path
+        visit items_path
 
       click_button "Add to Cart"
 

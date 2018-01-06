@@ -9,8 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create!
-    @order.items << Item.find(@cart.items)
+    @order = Order.create(user: current_user)
+    items = @order.items << Item.find(@cart.items)
+    # byebug
     flash[:success] = "You order was successfully placed"
     redirect_to orders_path
   end
