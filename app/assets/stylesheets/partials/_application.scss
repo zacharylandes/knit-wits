@@ -82,9 +82,16 @@ button{
 }
 
 .notice {
+  width: 250px;
+  border: 2px solid lighten($primary-color, 5%);
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba($primary-color, 0.5 );
   margin-top: 20px;
+  padding: 2px;
   color: purple;
 }
+
 
 .footer {
   display: flex;
