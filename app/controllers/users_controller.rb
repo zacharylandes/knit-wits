@@ -23,6 +23,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    if current_user.id == params[:id].to_i
+      @user = User.find(params[:id])
+    else
+      render file: "/public/404"
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
 private
 
   def user_params

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post '/cart', to: "carts#create"
 
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update ]
 
   resources :items, only: [:index, :show]
   resources :categories, only: [ :index]
