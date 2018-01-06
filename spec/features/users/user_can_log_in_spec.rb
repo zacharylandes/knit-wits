@@ -22,7 +22,7 @@ describe "user sees login button on root page" do
 
     click_on "Log In"
 
-    expect(current_path).to eq("/dashboard")
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as #{user.username}")
     expect(page).to have_content("Logout")
   end

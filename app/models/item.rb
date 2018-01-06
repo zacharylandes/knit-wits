@@ -1,8 +1,10 @@
 class Item < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
-  validates_presence_of :title, :status, :description, :image, :price
+  validates_presence_of :title, :status, :description, :price
 
   enum status: [:retired, :active, :out_of_stock]
 
@@ -21,4 +23,5 @@ class Item < ApplicationRecord
   def out_of_stock?
     status == "out_of_stock"
   end
+
 end

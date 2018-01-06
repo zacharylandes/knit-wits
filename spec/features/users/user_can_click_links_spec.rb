@@ -31,10 +31,10 @@ describe 'homepage' do
     it 'clicks on the logo button' do
       visit '/categories'
 
-      click_link 'Knitwits'
-
+      first('a').click
       expect(current_path).to eq("/")
     end
+
     it 'clicks on the cart ' do
       visit '/'
 

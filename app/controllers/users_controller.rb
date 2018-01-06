@@ -1,26 +1,44 @@
 class UsersController < ApplicationController
-  def show
-  end
 
   def new
     @user = User.new
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
-      flash[:success] = "Logged in as #{current_user.username}"
-      redirect_to dashboard_path(id: user.id)
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to dashboard_path
     else
-      flash[:notice] = "Unable to create account!"
+      flash[:alert] = "Invalid Credentials"
       render :new
     end
   end
 
-    private
-
-    def user_params
-      params.require(:user).permit(:username, :password)
+  def show
+    if logged_in?
+    else
+      render file: "/public/404"
     end
+  end
+
+  def edit
+    if current_user.id == params[:id].to_i
+      @user = User.find(params[:id])
+    else
+      render file: "/public/404"
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to dashboard_path
+  end
+
+private
+
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end
