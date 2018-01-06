@@ -1,0 +1,23 @@
+// colors
+$primary-color: #3E442b;
+$secondary-color: #BDC2BF;
+$pagination-circular-color: $primary-color;
+$pagination-circular-disabled-color: $secondary-color;
+// color-scheme # 877b8c, # f2f2f2, # 7d5749, # 8d8d7c, # e5a261
+
+// font-size
+$pagination-circular-size: 14px; // controls font and circle size
+
+// borders
+$pagination-circular-border-thickness: 1px;
+
+// font
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans|Barlow|Muli|Quattrocento');
+
+// use any of the above with these tags
+// font-family: 'Alegreya Sans', sans-serif;
+// font-family: 'Muli', sans-serif;
+// font-family: 'Quattrocento', serif;
+// font-family: 'Barlow', sans-serif;
+// font-family: 'Roboto Slab', serif;

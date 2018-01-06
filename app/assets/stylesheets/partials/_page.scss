@@ -1,0 +1,48 @@
+.page{
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.paginate-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+.pagination .current {
+ border: $pagination-circular-border-thickness solid $pagination-circular-color;
+ border-radius: 5000px;
+ padding: 0.285em 0.8em;
+ font-size: $pagination-circular-size;
+}
+
+.pagination .disabled {
+ border: $pagination-circular-border-thickness solid $pagination-circular-disabled-color;
+ padding: 0.285em 0.8em;
+ border-radius: 5000px;
+ font-size: $pagination-circular-size;
+}
+.item img{
+    width: 200px;
+
+}
+.pagination a {
+ border-radius: 5000px;
+ padding: 0.285em 0.8em;
+ border: $pagination-circular-border-thickness solid $pagination-circular-color;
+ font-size: $pagination-circular-size;
+}
+
+.pagination a:hover {
+ background-color: $secondary-color;
+}
+
+.pagination li:not(.disabled):hover a {
+ background: $pagination-circular-color;
+ color: white;
+}
+
+.pagination li a {
+ transition: background 0.15s ease-in, color 0.15s ease-in;
+}

@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+nav {
+ display: flex;
+ flex-direction: row;
+ align-items:flex-end;
+ justify-content: space-between;
+ background-color:  #3E442B;
+}
+body {
+  counter-reset: section;
+}
+body {
+ background-color: #E1DCD9;
+ font-family: 'Barlow', sans-serif;
+ display: flex;
+ flex-direction: column;
+}
+
+i {
+color: #E3E7D3;
+}
+nav img {
+width: 330px;
+height: 140px;
+}
+ul {
+  margin-left: 0;
+}
+button:hover{
+  // background-color: #E3E7D3;
+  color: #3E442B;
+}
+
+button{
+  // margin-bottom: 0;
+  background-color: #3E442B;
+  border-color:  #3E442B;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.update {
+  width: 30px;
+}
+.log-in-form {
+  border: 1px solid $secondary-color;
+  box-shadow: 2px 2px 2px $secondary-color;
+  line-height: 25px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.create-account {
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.notice {
+  margin-top: 20px;
+  color: purple;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: center;
+  text-align: center;
+  background-color: $primary-color;
+}
+
+.footer-profile {
+  width: 150px;
+  background-color: $secondary-color;
+  border: 1px solid $secondary-color;
+  box-shadow: 2px 2px 2px $secondary-color;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  background-color: $primary-color;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}

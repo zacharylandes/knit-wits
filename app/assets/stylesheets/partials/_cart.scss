@@ -1,0 +1,24 @@
+.cart-contents {
+  .cart-item-subtotal {
+    width: 20%;
+    text-align: center;
+  }
+  .cart-item-price {
+    width: 20%;
+    text-align: center;
+  }
+  .cart-item-quantity {
+    width: 20%;
+    text-align: center;
+  }
+  .product-card-thumbnail {
+    width: 300px;
+    text-align: center;
+  }
+  .cart-item-total {
+    width: 20%;
+    text-align: center;
+    border: 1px solid $secondary-color;
+  }
+  margin: 30px;
+}
