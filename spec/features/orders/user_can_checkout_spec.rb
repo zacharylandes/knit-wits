@@ -21,7 +21,9 @@ describe "User can checkout" do
       visit cart_path(@user)
 
       click_link ('Checkout')
-      expect(page).to have_content("You now have 2 #{@item.title}s in your cart!")
+
+      expect(page).to have_content("cool mitten")
+
     end
   end
 end

@@ -1,11 +1,18 @@
 describe "Visitor sees item they like" do
   describe "they click on add item to cart" do
     before(:each) do
+      @user = create(:user)
       @item = create(:item)
+      visit "/login"
+
+      fill_in "username", with: "bob"
+      fill_in "password", with: 'password'
+      click_on "Log In"
+
     end
 
     it "user sees message that item is added to cart" do
-      visit items_path
+              visit items_path
 
       click_button "Add to Cart"
 

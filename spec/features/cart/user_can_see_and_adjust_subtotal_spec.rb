@@ -1,7 +1,13 @@
 describe 'user can view cart total' do
   context 'items are in cart' do
     before(:each) do
+      @user = create(:user)
       @item = create(:item)
+      visit "/login"
+
+      fill_in "username", with: "bob"
+      fill_in "password", with: 'password'
+      click_on "Log In"
     end
 
     it 'user adds item, total changes' do

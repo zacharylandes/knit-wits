@@ -3,7 +3,10 @@ class CartsController < ApplicationController
   helper_method :cart_total_price
 
   def show
-    @items = @cart.items.map {|item|Item.find(item.to_i)}
+    # if session[:user_id]
+    #   @user = User.find(session[:user_id])
+    # end
+      @items = @cart.items.map {|item|Item.find(item.to_i)}
   end
 
 

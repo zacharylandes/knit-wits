@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/users/new', to: 'users#new', as: 'new_user'
   post '/users', to: 'users#create', as: 'users'
 
-
   put '/cart', to: "carts#update"
   delete '/cart', to: "carts#destroy"
   get '/cart', to: "carts#show"

@@ -2,7 +2,8 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.paginate(:page => params[:page], :per_page => 15)
+    @orders = Order.where(user_id: session[:user_id])
+    # all.paginate(:page => params[:page], :per_page => 15)
   end
 
   def new
@@ -12,7 +13,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create!(user_id: session[:user_id] )
-    @items = @order.items << Item.where(@cart.items)
+    @items = @order.items << Item.find(@cart.items)
+    # @count = @
     redirect_to user_orders_path(session[:user_id])
   end
 
