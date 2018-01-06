@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   post '/cart', to: "carts#create"
 
 
-  resources :users, only: [:new, :create, :show, :edit, :update ]
+
+  resources :users, only: [:new, :create, :show, :edit, :update ] do
+      get '/orders', to: 'orders#index'
+      get '/order', to: 'orders#show'
+      post '/orders', to: 'orders#create', as: :create
+  end
 
   resources :items, only: [:index, :show]
   resources :categories, only: [ :index]
