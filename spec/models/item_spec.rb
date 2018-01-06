@@ -74,6 +74,7 @@ describe Item do
 
   describe "relationships", type: :model do
     it { should belong_to(:category)}
+    it { should have_many(:orders)}
   end
 
   describe "instance methods" do
