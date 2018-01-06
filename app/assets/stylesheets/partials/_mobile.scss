@@ -1,0 +1,35 @@
+.mobile-app-icon-bar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #E1DCD9;
+}
+
+.mobile-app-icon-bar button {
+  padding: 1rem;
+  cursor: pointer;
+  background-color: #3E442B;
+  display: flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+}
+
+.mobile-app-icon-bar :hover{
+  // background-color: #E3E7D3;
+  color: #3E442B;
+}
+
+.mobile-app-icon-bar button svg,
+.mobile-app-icon-bar button i,
+.mobile-app-icon-bar button img {
+  font-size: 1rem;
+  max-height: 2rem;
+  max-width: 2rem;
+  // color:black;
+}
