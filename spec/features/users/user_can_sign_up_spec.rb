@@ -1,35 +1,35 @@
 require 'rails_helper'
 describe User do
   describe 'user authentication' do
-  it 'signs up ' do
-    visit '/sign-up'
+    it 'signs up ' do
+      visit '/sign-up'
 
-  fill_in "user[username]", with: "funbucket13"
-  fill_in "user[password]", with: "test"
+      fill_in "user[username]", with: "funbucket13"
+      fill_in "user[password]", with: "test"
 
-  click_on "Register"
+      click_on "Register"
 
-  expect(page).to have_content("Logged in as funbucket13")
+      expect(page).to have_content("Logged in as funbucket13")
     end
   end
 
   describe 'already logged in' do
     it 'is already logged in' do
-     user = create(:user)
-    visit '/'
+      user = create(:user)
+      visit '/'
 
-    click_on "Login"
+      click_on "Login"
 
-    expect(current_path).to eq(login_path)
+      expect(current_path).to eq(login_path)
 
-    fill_in "username", with: user.username
-    fill_in "password", with: user.password
+      fill_in "username", with: user.username
+      fill_in "password", with: user.password
 
-    click_on "Log In"
+      click_on "Log In"
 
-    expect(current_path).to eq(user_path(user))
+      expect(current_path).to eq(user_path(user))
 
-    expect(page).to have_content("Logout")
+      expect(page).to have_content("Logout")
     end
 
     it "can be created as an admin" do
