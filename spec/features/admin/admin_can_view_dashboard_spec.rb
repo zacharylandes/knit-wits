@@ -1,7 +1,7 @@
 describe "User tries to visit admin dashboard" do
   context "as admin" do
     it 'can see dashboard' do
-      user = User.create!(username: "Max", password: '12345', role:1)
+      User.create!(username: "Max", password: '12345', role:1)
 
       visit "/login"
 
@@ -15,6 +15,7 @@ describe "User tries to visit admin dashboard" do
       expect(page).to have_content("Logout")
     end
   end
+
   context "as default user" do
     it 'does not allow default user to see dashboard ' do
       user = create(:user)
