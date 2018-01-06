@@ -27,11 +27,7 @@ describe User do
 
       click_on "Log In"
 
-<<<<<<< HEAD
-    expect(current_path).to eq(dashboard_path)
-=======
       expect(current_path).to eq(user_path(user))
->>>>>>> be3f820b4094d772b676f0a32ebb805b9f6082f9
 
       expect(page).to have_content("Logout")
     end
