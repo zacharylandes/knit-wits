@@ -5,8 +5,9 @@ describe 'user can view cart total' do
     end
 
     it 'user adds item, total changes' do
-      visit items_path
+      visit item_path(@item)
       click_button "Add to Cart"
+      visit item_path(@item)
       click_button "Add to Cart"
       total = @item.price * 2
 
@@ -18,8 +19,9 @@ describe 'user can view cart total' do
     end
 
     it 'user can decrease item, total changes' do
-      visit items_path
+      visit item_path(@item)
       click_button "Add to Cart"
+      visit item_path(@item)
       click_button "Add to Cart"
       total = @item.price * 2
 

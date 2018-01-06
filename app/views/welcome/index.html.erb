@@ -1,0 +1,17 @@
+<h3>Welcome, to our Witty Shop of Knits!</h3>
+
+<div class="welcome-section">
+  You May Like
+  <div class="all-items">
+  <% @items.each do |item| %>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <%= link_to image_tag(asset_path(item.image)), item_path(item)  %>
+      </div>
+      <%= link_to item.title, item_path(item), class: "product-card-title" %></br>
+      <span class="product-card-price"><%= item.price_in_dollars %></span></br>
+      <%= button_to "Add to Cart", cart_path(item_id: item.id), :disabled => !item.active? %>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -3,8 +3,9 @@ describe "Visits cart page" do
     @item = create(:item)
     @user = create(:user)
 
-    visit items_path
+    visit item_path(@item)
     click_button "Add to Cart"
+    visit item_path(@item)
     click_button "Add to Cart"
   end
 
