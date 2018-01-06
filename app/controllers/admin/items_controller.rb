@@ -1,5 +1,5 @@
 
-class Admin::ItemsController < ApplicationController
+class Admin::ItemsController < Admin::BaseController
   def index
     @item = Item.new
     @items = Item.all.paginate(:page => params[:page], :per_page => 15)
