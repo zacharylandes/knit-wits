@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/sign-up', as: 'sign-up', to: 'users#new'
-  get '/', to: "items#index"
+  # get '/', to: "items#index"
 
 
   root "welcome#index"

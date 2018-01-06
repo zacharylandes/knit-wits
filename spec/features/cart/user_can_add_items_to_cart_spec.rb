@@ -13,11 +13,13 @@ describe "Visitor sees item they like" do
     end
 
     it "correctly increments for multiple items" do
-      visit items_path
+      visit item_path(@item)
 
       click_button "Add to Cart"
 
       expect(page).to have_content("You now have 1 #{@item.title} in your cart!")
+
+      visit item_path(@item)
 
       click_button "Add to Cart"
 

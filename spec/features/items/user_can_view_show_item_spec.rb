@@ -18,6 +18,8 @@ describe "User visits item show page" do
 
     expect(page).to have_content("You now have 1 #{item.title} in your cart!")
 
+    visit item_path(item)
+
     click_button "Add to Cart"
 
     expect(page).to have_content("You now have 2 #{item.title}s in your cart!")

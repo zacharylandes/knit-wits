@@ -2,8 +2,9 @@ class Item < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :category
-
-  validates_presence_of :title, :status, :description,:price
+  has_many :order_items
+  has_many :orders, through: :order_items
+  validates_presence_of :title, :status, :description, :price
 
   enum status: [:retired, :active, :out_of_stock]
 

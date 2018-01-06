@@ -12,8 +12,8 @@
 </head>
   <body>
     <nav >
-        <a ><%= image_tag ("knitwits.png") %></a>
-      <ul class="menu menu-hover-lines">
+     <%= link_to image_tag(asset_path("knitwits.png")), root_path  %>
+           <ul class="menu menu-hover-lines">
         <li><%= link_to 'Home', items_path  %></li>
         <li><%= link_to 'Knits', items_path  %></li>
         <li><%= link_to 'Categories', categories_path  %></li>
@@ -40,12 +40,7 @@
       <%= yield %>
     </div>
 
-    <footer class="mobile-app-icon-bar">
-      <button><a href = ""><i class="fa fa-twitter" aria-hidden="true"></i></button>
-      <button><i class="fa fa-github" aria-hidden="true"></i></button>
-      <button><a href = "www.facebook.com/lachzandes"><i class="fa fa-facebook" aria-hidden="true"></i></a></button>
-      <button><i class="fa fa-linkedin" aria-hidden="true"></i></button>
-    </footer>
+ <%= render partial: "layouts/footer" %>
   </body>
 
 </html>
