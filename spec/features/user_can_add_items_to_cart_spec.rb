@@ -12,16 +12,18 @@ describe "Visitor sees item they like" do
       expect(page).to have_content("You now have 1 #{@item.title} in your cart!")
     end
 
-    xit "correctly increments for multiple items" do
+    it "correctly increments for multiple items" do
       visit items_path
 
       click_button "Add to Cart"
 
       expect(page).to have_content("You now have 1 #{@item.title} in your cart!")
 
-      click_button "Add to Cart"
+      fill_in "item[quantity]", with: 4
 
-      expect(page).to have_content("You now have 2 #{@item.title}s in your cart!")
+      click_button "Update"
+
+      expect(page).to have_content("You now have 4 #{@item.title}s in your cart!")
     end
   end
 end

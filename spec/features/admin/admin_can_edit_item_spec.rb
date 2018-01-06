@@ -1,11 +1,11 @@
 
 describe "admin can edit items " do
   context "when a user is an admin" do
-      before(:each) do
+        before(:each) do
         @category = create(:category)
         @admin = create(:user, role:1)
         @item = create(:item)
-      end
+        end
 
       it "allows admin to update status" do
 
@@ -14,15 +14,17 @@ describe "admin can edit items " do
         visit admin_items_path
 
         within('.all-items') do
-          select "retired", :from => "item[status]"
-          click_on "Update Item"
-        end
-        
+        select "retired", :from => "item[status]"
+        click_on "Update Item"
+
+      end
         expect(current_path).to eq(admin_items_path)
         expect(page).to have_content("retired")
+
       end
 
     it "allows admin to edit an item" do
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit admin_items_path
@@ -41,6 +43,12 @@ describe "admin can edit items " do
       click_on ("Update Item")
       expect(current_path).to eq(admin_items_path)
       expect(page).to have_content("pantalones")
+
+
     end
+
+
+
+
   end
 end

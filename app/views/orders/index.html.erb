@@ -1,9 +1,16 @@
-
-
+<table class="cart-contents">
+    <th>Knit</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+    <th></th>
 <%@orders.each do |order| %>
 <% order.items.each do |item|%>
-  <p><%= item.title %></p>
-  <p><%= item.price %></p>
-  <p><%=  item.order_items.find_by(order_id: order).item_quantity(@cart) %></p>
+  <tr>
+  <td  ><%= item.title %></td>
+  <td class="cart-item-price"><%= item.price %></td>
+  <td  class="cart-item-quantity"><%=  item.order_items.find_by(order_id: order).item_quantity(@cart) %></td>
   <% end %>
+</tr>
 <% end %>
+</table>
