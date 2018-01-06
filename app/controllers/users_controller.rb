@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash[:alert] = "Invalid Credentials"
       render :new
@@ -16,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.id == params[:id].to_i
-      @user = User.find(params[:id])
+    if logged_in?
     else
       render file: "/public/404"
     end
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path(@user)
+    redirect_to dashboard_path
   end
 
 private

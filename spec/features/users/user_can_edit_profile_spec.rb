@@ -19,7 +19,7 @@ describe "user is logged id" do
 
     click_on "Update my account"
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as Sam")
     expect(page).to have_content("Logout")
   end

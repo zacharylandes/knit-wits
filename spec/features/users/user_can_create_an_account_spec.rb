@@ -16,7 +16,7 @@ describe 'unregistered can register for account' do
 
     user = User.last
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as #{user.username}")
   end
 end

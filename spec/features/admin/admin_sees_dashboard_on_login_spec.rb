@@ -1,5 +1,4 @@
-describe "user sees login button on root page" do
-
+describe "Admin sees login button on root page" do
   it "should see the form to login" do
     user = User.create!(username: "Max", password: '12345', role:1)
 

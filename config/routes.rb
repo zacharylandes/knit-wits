@@ -11,26 +11,23 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  get '/dashboard', to: 'users#show', as: "dashboard"
-  get '/users/new', to: 'users#new', as: 'new_user'
-  post '/users', to: 'users#create', as: 'users'
-
 
   put '/cart', to: "carts#update"
   delete '/cart', to: "carts#destroy"
   get '/cart', to: "carts#show"
   post '/cart', to: "carts#create"
 
-
-  resources :users, only: [:new, :create, :show, :edit, :update ]
+  get '/dashboard', to: 'users#show', as: "dashboard"
+  resources :users, only: [:new, :create, :edit, :update ]
 
   resources :items, only: [:index, :show]
+
+  namespace :admin do
+    get 'dashboard', to: "dashboard#index"
+    resources :items
+  end
+
   resources :categories, only: [ :index]
   get "/:category", to: "categories#show", as: "category"
-
-    namespace :admin do
-      get 'dashboard', to: "dashboard#index"
-      resources :items
-    end
 
 end
