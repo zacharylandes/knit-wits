@@ -1,7 +1,9 @@
 
+
 <%@orders.each do |order| %>
-  <%order.items.each do |item| %>
+<% order.items.each do |item|%>
   <p><%= item.title %></p>
   <p><%= item.price %></p>
-<% end %>
+  <p><%=  item.order_items.find_by(order_id: order).item_quantity(@cart) %></p>
+  <% end %>
 <% end %>

@@ -1,4 +1,4 @@
-describe "User visits categories index page" do
+describe "User tries to visit admin dashboard" do
   context "as admin" do
     it 'can see dashboard' do
       user = User.create!(username: "Max", password: '12345', role:1)
