@@ -1,15 +1,21 @@
 describe "User visits categories index page" do
   context "as admin" do
-    it "allows admin to see dashboard" do
-      admin = create(:user, role:1)
+    it 'can see dashboard' do
+      user = User.create!(username: "Max", password: '12345', role:1)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      visit "/login"
 
-      visit admin_dashboard_path
+      fill_in "username", with: "Max"
+      fill_in "password", with: '12345'
+
+      click_on "Log In"
+
+      expect(current_path).to eq(admin_dashboard_path)
       expect(page).to have_content("Admin Dashboard")
+      expect(page).to have_content("Logout")
     end
   end
-    context "as default user" do
+  context "as default user" do
     it 'does not allow default user to see dashboard ' do
       user = create(:user)
 
@@ -18,13 +24,13 @@ describe "User visits categories index page" do
       expect(page).to_not have_content("Admin Categories")
       expect(page).to have_content("The page you were looking for doesn't exist.")
       end
-    end
-    context "as a visitor " do
+  end
+  context "as a visitor " do
     it 'does not allow visitor to see dashboard' do
       visit admin_dashboard_path
       expect(page).to_not have_content("Admin Categories")
       expect(page).to have_content("The page you were looking for doesn't exist.")
       end
-    end
+  end
 
 end

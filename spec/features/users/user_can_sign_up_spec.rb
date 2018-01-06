@@ -14,7 +14,7 @@ describe User do
   end
 
   describe 'already logged in' do
-    xit 'is already logged in' do
+    it 'is already logged in' do
      user = create(:user)
     visit '/'
 
@@ -29,7 +29,6 @@ describe User do
 
     expect(current_path).to eq(user_path(user))
 
-    expect(page).to have_content("Welcome, username!")
     expect(page).to have_content("Logout")
     end
 
