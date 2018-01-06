@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-  end 
+    @items = Item.all.sample(3)
+  end
 end

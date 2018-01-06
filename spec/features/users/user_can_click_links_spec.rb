@@ -28,12 +28,12 @@ describe 'homepage' do
 
       expect(current_path).to eq(categories_path)
     end
-    it 'clicks on the home button' do
+    it 'clicks on the logo button' do
       visit '/categories'
 
-      click_link 'Home'
+      click_link 'Knitwits'
 
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq("/")
     end
     it 'clicks on the cart ' do
       visit '/'
@@ -44,13 +44,36 @@ describe 'homepage' do
     end
 
     describe '#footer'do
-      it 'clicks the facebook link' do
-        visit '/'
+      context "max's profile" do
+        it "has social profile links" do
+          visit '/'
 
-        expect(page).to have_css('.fa-facebook')
-        expect(page).to have_css('.fa-twitter')
-        expect(page).to have_css('.fa-github')
+          within ".max" do
+            expect(page).to have_link('max-github')
+          end
+        end
       end
+
+      context "zach's profile" do
+        it "has social profile links" do
+          visit '/'
+
+          within ".zach" do
+            expect(page).to have_link('zach-github')
+          end
+        end
+      end
+
+      context "katy's profile" do
+        it "has social profile links" do
+          visit '/'
+
+          within ".katy" do
+            expect(page).to have_link('katy-github')
+          end
+        end
+      end
+
     end
   end
 end
