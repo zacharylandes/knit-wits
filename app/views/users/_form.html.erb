@@ -18,7 +18,7 @@
       <%= f.select(:state, @states) %><br/>
       <%= f.label :zipcode %><br/>
       <%= f.text_field :zipcode, placeholder: :zipcode %><br/>
-      <%= f.submit class: :submit %>
+      <%= f.submit "#{@button_text}", class: :submit %>
       <% end %>
     </div>
   </div>

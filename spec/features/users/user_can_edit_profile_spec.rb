@@ -22,7 +22,7 @@ describe "user is logged id" do
     select "CO", from: "user[state]"
     fill_in "user[zipcode]", with: 12345
 
-    click_on "Update User"
+    click_on "Update my Account"
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as Sam")

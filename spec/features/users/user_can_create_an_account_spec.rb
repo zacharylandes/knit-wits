@@ -17,7 +17,7 @@ describe 'unregistered can register for account' do
     select "CO", from: "user[state]"
     fill_in "user[zipcode]", with: 12345
 
-    click_on "Create User"
+    click_on "Register"
 
     user = User.last
 

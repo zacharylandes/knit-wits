@@ -23,7 +23,7 @@ describe "user is logged id" do
     fill_in "user[username]", with: "Sam"
     fill_in "user[password]", with: 'password'
 
-    click_on "Update User"
+    click_on "Update my Account"
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as Sam")

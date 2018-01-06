@@ -12,7 +12,7 @@ describe User do
       select "CO", from: "user[state]"
       fill_in "user[zipcode]", with: 12345
 
-      click_on "Create User"
+      click_on "Register"
 
       expect(page).to have_content("Logged in as funbucket13")
     end
