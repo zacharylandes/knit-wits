@@ -57,6 +57,11 @@
  line-height: 1rem;
  margin-top: 1rem;
  margin-bottom: 0;
+ text-decoration: none;
+}
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  text-decoration: none;
+  color: black;
 }
 
 .product-card-price {

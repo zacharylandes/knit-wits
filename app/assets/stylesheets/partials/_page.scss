@@ -1,4 +1,4 @@
-.page{
+.page {
   min-height: 500px;
   display: flex;
   flex-direction: column;
@@ -32,10 +32,12 @@
  padding: 0.285em 0.8em;
  border: $pagination-circular-border-thickness solid $pagination-circular-color;
  font-size: $pagination-circular-size;
+ text-decoration: none;
 }
 
 .pagination a:hover {
  background-color: $secondary-color;
+ text-decoration: none;
 }
 
 .pagination li:not(.disabled):hover a {

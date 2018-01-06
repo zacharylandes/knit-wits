@@ -15,11 +15,11 @@
 
  */
 nav {
- display: flex;
- flex-direction: row;
- align-items:flex-end;
- justify-content: space-between;
- background-color:  #3E442B;
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+  justify-content: space-between;
+  background-color:  #3E442B;
 }
 body {
   counter-reset: section;
@@ -34,6 +34,7 @@ body {
 i {
 color: #E3E7D3;
 }
+
 nav img {
 width: 330px;
 height: 140px;
