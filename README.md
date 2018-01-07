@@ -4,7 +4,7 @@
 * Clone the repo down to local machine.
 * Navigate into project root directory.
 * run `rails db:create db:migrate db:seed`
-* run 'rails server'
+* run `rails server`
 * open browser
 
 
