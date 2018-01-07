@@ -6,9 +6,4 @@ class Category < ApplicationRecord
   def generate_slug
     self.slug = name.parameterize
   end
-
-  def self.highest_price
-    byebug
-    select(:item)
-  end
 end

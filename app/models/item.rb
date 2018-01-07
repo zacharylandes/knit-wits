@@ -24,4 +24,8 @@ class Item < ApplicationRecord
     status == "out_of_stock"
   end
 
+  def self.category_with_highest_price
+    order("price DESC").first.category
+  end
+
 end

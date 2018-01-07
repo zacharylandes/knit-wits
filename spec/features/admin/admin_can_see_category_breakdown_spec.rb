@@ -15,6 +15,6 @@ describe "Admin sees user breakdown on analytics page for categories" do
     visit admin_analytics_dashboard_path
 
     expect(page).to have_content("Admin Analytics Dashboard")
-    expect(page).to have_content("Category with highest price item: Sweaters")
+    expect(page).to have_content("Category with highest price item: #{category.name.capitalize}")
   end
 end
