@@ -1,12 +1,12 @@
 describe "user is logged id" do
   it "can edit profile" do
 
-    user = User.create!(username: "Max", password: '12345')
+    user = create(:user)
 
     visit "/login"
 
-    fill_in "username", with: "Max"
-    fill_in "password", with: '12345'
+    fill_in "username", with: "#{user.username}"
+    fill_in "password", with: "#{user.password}"
 
     click_on "Log In"
 
@@ -15,9 +15,14 @@ describe "user is logged id" do
     expect(current_path).to eq(edit_user_path(user))
 
     fill_in "user[username]", with: "Sam"
-    fill_in "user[password]", with: 'password'
+    fill_in "user[password]", with: "reallygoodpw"
+    fill_in "user[full_name]", with: "Katy"
+    fill_in "user[street]", with: '123 main'
+    fill_in "user[city]", with: "denv"
+    select "CO", from: "user[state]"
+    fill_in "user[zipcode]", with: 12345
 
-    click_on "Update my account"
+    click_on "Update my Account"
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as Sam")
