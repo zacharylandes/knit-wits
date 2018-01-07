@@ -7,10 +7,11 @@
 <%@orders.each do |order| %>
 <% order.items.each do |item|%>
   <tr>
-  <td  ><%= item.title %></td>
-  <td class="cart-item-price"><%= item.price %></td>
-  <td  class="cart-item-quantity"><%=  item.order_items.find_by(order_id: order).item_quantity(@cart) %></td>
-  <% end %>
-</tr>
+    <td  ><%= item.title %></td>
+    <td class="cart-item-price"><%= item.price %></td>
+    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).item_quantity(@cart) %></td>
+    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).order_total(@cart) %></td>
+    <% end %>
+  </tr>
 <% end %>
 </table>

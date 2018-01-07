@@ -10,8 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(user: current_user)
-    items = @order.items << Item.find(@cart.items)
-    # byebug
+    items = @order.items <<  @cart.items.map {|item|Item.find(item.to_i)}
     flash[:success] = "You order was successfully placed"
     redirect_to orders_path
   end
