@@ -25,13 +25,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def order_sub(item,order)
-  item.price * item.order_items.find_by(order_id: order.id).quantity
-  end
 
-  def order_total(order)
-    order.items.map {|item|item.price * item.order_items.find_by(order_id: order.id).quantity}
-  end
 private
 
   def order_params
