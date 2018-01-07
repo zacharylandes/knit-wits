@@ -5,7 +5,12 @@ describe User do
       visit '/sign-up'
 
       fill_in "user[username]", with: "funbucket13"
-      fill_in "user[password]", with: "test"
+      fill_in "user[password]", with: "reallygoodpw"
+      fill_in "user[full_name]", with: "Katy"
+      fill_in "user[street]", with: '123 main'
+      fill_in "user[city]", with: "denv"
+      select "CO", from: "user[state]"
+      fill_in "user[zipcode]", with: 12345
 
       click_on "Register"
 
@@ -27,7 +32,7 @@ describe User do
 
       click_on "Log In"
 
-      expect(current_path).to eq(user_path(user))
+      expect(current_path).to eq(dashboard_path)
 
       expect(page).to have_content("Logout")
     end
