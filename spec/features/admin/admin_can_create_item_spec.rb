@@ -5,7 +5,7 @@ describe "admin can create items " do
       @category = create(:category)
       @admin = create(:user, role:1)
     end
-    
+
     it "allows admin to add an image" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
@@ -22,7 +22,7 @@ describe "admin can create items " do
       expect(current_path).to eq(admin_items_path)
       expect(Item.count).to eq(1)
     end
-    
+
     it "allows admin to see an image" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
@@ -42,7 +42,7 @@ describe "admin can create items " do
       expect(page).to have_content(2.00)
 
       within(:css, '.all-items')do
-        page.find('img')['src'].should have_content 'image.jpeg'
+        page.find('img')['src'].should have_content
       end
     end
   end

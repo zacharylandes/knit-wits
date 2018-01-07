@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20180106223800) do
     t.string "full_name"
     t.string "street"
     t.string "city"
-    t.string "state"
+    t.integer "state"
     t.integer "zipcode"
   end
 

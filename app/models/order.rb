@@ -5,4 +5,6 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
 
   enum status: %w(Ordered Paid Completed Cancelled)
+
+
 end
