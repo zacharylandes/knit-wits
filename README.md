@@ -3,15 +3,14 @@
 ## Basic Setup
 * Clone the repo down to local machine.
 * Navigate into project root directory.
-* run `rails db:create db:migrate db:seed`
+* run `rails db:create` to create database
+* run `rails db:migrate` to migrate database
+* run `rails db:seed` to seed database with default data
 * run `rails server`
 * open browser
 
 
 ## Seed File
-Load data with:
-`rails db:seed`
-
 Create new Dataset with:
 `ruby db/seed_runner.rb`
 
