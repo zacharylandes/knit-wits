@@ -1,0 +1,12 @@
+<table class="cart-contents">
+    <th>Order id</th>
+    <th>Status</th>
+    <th>Order Placed on</th>
+    <th></th>
+<%@orders.each do |order| %>
+  <tr>
+    <td class="cart-item-price"> <%= link_to "view order", order_path(order) %></td>
+    <td class="cart-item-price"> <%= order.created_at%></td>
+  </tr>
+<% end %>
+</table>

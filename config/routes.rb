@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show', as: "dashboard"
   resources :users, only: [:new, :create, :edit, :update ]
 
+
+  resources :orders, only: [:show  ]
+  get  '/orders', to: 'orders#index', as:'orders'
+  post '/orders', to: 'orders#create'
+
+
   resources :items, only: [:index, :show]
 
   resources :orders, only: [:show, :edit, :update]

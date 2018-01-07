@@ -1,7 +1,13 @@
 describe 'visitor visits cart show page' do
   context 'items are in cart' do
     before(:each) do
+      @user = create(:user)
       @item = create(:item)
+      visit "/login"
+
+      fill_in "username", with: "bob"
+      fill_in "password", with: 'password'
+      click_on "Log In"
     end
 
     it 'can remove item from cart' do

@@ -1,4 +1,4 @@
-describe "User tries to visit admin dashboard" do
+describe "User visits categories index page" do
   context "as admin" do
     it 'can see dashboard' do
       admin = create(:admin)

@@ -1,4 +1,14 @@
 describe "User visits item show page" do
+
+  before(:each) do
+    @user = create(:user)
+    visit "/login"
+
+    fill_in "username", with: "bob"
+    fill_in "password", with: 'password'
+    click_on "Log In"
+  end
+  
   it "can see item details" do
     item = create(:item)
 
