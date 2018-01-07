@@ -4,8 +4,8 @@ describe "User can view all orders" do
       @item = create(:item)
       @user = create(:user)
       visit "/login"
-
-      fill_in "username", with: "bob"
+      # byebug
+      fill_in "username", with: "user 62"
       fill_in "password", with: 'password'
 
       click_on "Log In"
@@ -23,13 +23,12 @@ describe "User can view all orders" do
       visit item_path(@item)
 
       click_button "Add to Cart"
-
+      # save_and_open_page
       fill_in "item[quantity]", with: 3
 
       click_on "Update"
 
       click_link ('Checkout')
-
       expect(page).to have_content(3)
       expect(page).to have_content(1)
 

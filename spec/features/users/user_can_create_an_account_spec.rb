@@ -11,6 +11,11 @@ describe 'unregistered can register for account' do
 
     fill_in "user[username]", with: "katyjane8"
     fill_in "user[password]", with: "reallygoodpw"
+    fill_in "user[full_name]", with: "Katy"
+    fill_in "user[street]", with: '123 main'
+    fill_in "user[city]", with: "denv"
+    select "CO", from: "user[state]"
+    fill_in "user[zipcode]", with: 12345
 
     click_on "Register"
 

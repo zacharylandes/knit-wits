@@ -2,14 +2,9 @@
 <div class='login-page'>
   <div class='form'>
     <div class='log-in-form'>
-      <h2>Edit your pofile</h2>
-      <%= form_for @user do |f| %>
-      <%= f.label :username %><br/>
-      <%= f.text_field :username, placeholder: :username %><br/>
-      <%= f.label :password %><br/>
-      <%= f.password_field :password, placeholder: :password %><br/>
-      <%= f.submit "Update my account", class: :submit %>
-      <% end %>
+      <h2>Edit your profile</h2>
+        <% @button_text = "Update my Account" %>
+        <%= render partial: "form" %>
     </div>
   </div>
 </div>

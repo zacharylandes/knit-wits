@@ -1,12 +1,12 @@
 describe "User visits categories index page" do
   context "as admin" do
     it 'can see dashboard' do
-      user = User.create!(username: "Max", password: '12345', role:1)
+      admin = create(:admin)
 
       visit "/login"
 
-      fill_in "username", with: "Max"
-      fill_in "password", with: '12345'
+      fill_in "username", with: "#{admin.username}"
+      fill_in "password", with: "#{admin.password}"
 
       click_on "Log In"
 
@@ -15,6 +15,7 @@ describe "User visits categories index page" do
       expect(page).to have_content("Logout")
     end
   end
+
   context "as default user" do
     it 'does not allow default user to see dashboard ' do
       user = create(:user)

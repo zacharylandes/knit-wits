@@ -13,12 +13,12 @@ describe "user sees login button on root page" do
   end
 
   it "should see the form to login" do
-    user = User.create!(username: "Max", password: '12345')
+    user = create(:user)
 
     visit "/login"
 
-    fill_in "username", with: "Max"
-    fill_in "password", with: '12345'
+    fill_in "username", with: "#{user.username}"
+    fill_in "password", with: "#{user.password}"
 
     click_on "Log In"
 
