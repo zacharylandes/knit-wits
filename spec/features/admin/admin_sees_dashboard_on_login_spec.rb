@@ -12,5 +12,6 @@ describe "user sees login button on root page" do
 
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content("Logout")
+    expect(page).to have_content("Analytics Dashboard")
   end
 end

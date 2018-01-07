@@ -1,4 +1,3 @@
-
 class Admin::ItemsController < Admin::BaseController
   def index
     @item = Item.new
