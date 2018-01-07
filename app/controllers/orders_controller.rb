@@ -1,5 +1,7 @@
-
 class OrdersController < ApplicationController
+  helper_method :order_sub
+  helper_method :order_total
+  require 'date'
 
   def index
     @orders = Order.where(user: current_user)
@@ -21,6 +23,14 @@ class OrdersController < ApplicationController
       @order.update(status: params[:status])
       redirect_to admin_dashboard_path
     end
+  end
+
+  def order_sub(item,order)
+  item.price * item.order_items.find_by(order_id: order.id).quantity
+  end
+
+  def order_total(order)
+    order.items.map {|item|item.price * item.order_items.find_by(order_id: order.id).quantity}
   end
 private
 
