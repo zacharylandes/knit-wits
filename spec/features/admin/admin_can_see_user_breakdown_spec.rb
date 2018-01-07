@@ -13,6 +13,6 @@ describe "Admin sees user breakdown on analytics page" do
     visit admin_analytics_dashboard_path
 
     expect(page).to have_content("Admin Analytics Dashboard")
-    expect(page).to have_content("user 5")
+    expect(page).to have_content("User with the most orders: user 5")
   end
 end
