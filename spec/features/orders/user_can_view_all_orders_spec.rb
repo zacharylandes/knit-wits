@@ -23,7 +23,7 @@ describe "User can view all orders" do
       visit item_path(@item)
 
       click_button "Add to Cart"
-      # save_and_open_page
+
       fill_in "item[quantity]", with: 3
 
       click_on "Update"
