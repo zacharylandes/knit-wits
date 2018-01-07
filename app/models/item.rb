@@ -23,5 +23,4 @@ class Item < ApplicationRecord
   def out_of_stock?
     status == "out_of_stock"
   end
-
 end
