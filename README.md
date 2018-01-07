@@ -1,13 +1,14 @@
 # README
 
-## Basic Setup
-* Clone the repo down to local machine.
-* Navigate into project root directory.
-* run `rails db:create` to create database
-* run `rails db:migrate` to migrate database
-* run `rails db:seed` to seed database with default data
-* run `rails server`
-* open browser
+## Basic Application Setup
+### In Terminal:
+* `git clone https://github.com/katyjane8/knit-wits.git`
+* `cd knit-wits`.
+* `rails db:create` to create database
+* `rails db:migrate` to migrate database
+* `rails db:seed` to seed database with default data
+* `rails server`
+* open in browser: "http://localhost:3000/"
 
 
 ## Seed File
