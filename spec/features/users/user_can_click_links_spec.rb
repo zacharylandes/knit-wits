@@ -1,14 +1,5 @@
 describe 'homepage' do
   describe '#navigation' do
-      # before(:each) do
-      #   @item = create
-      #   @user = create(:user)
-      #   visit "/login"
-      #
-      #   fill_in "username", with: "bob"
-      #   fill_in "password", with: 'password'
-      #   click_on "Log In"
-      # end
     it "has log in button if not logged in" do
       visit '/'
 
