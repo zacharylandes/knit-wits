@@ -32,7 +32,7 @@ class SeedGenerator
     orders_count.times do
       date = Faker::Date.backward(500)
       orders << [rand(3), #4 different order statuses
-                 (rand(users_count-1) + 1), # number of users
+                 rand(1..users_count), # number of users
                  date,
                  date]
     end
@@ -43,9 +43,9 @@ class SeedGenerator
     order_items = []
     order_items << %w(item_id order_id quantity)
     order_items_count.times do
-      order_items << [(rand(15) + 1), #items in database
-                      (rand(orders_count-1) + 1), #number of orders
-                      rand(5)] #max quantity of one item on order
+      order_items << [rand(1..16), #items in database
+                      rand(1..orders_count), #number of orders
+                      rand(1..5)] #max quantity of one item on order
     end
     order_items
   end
