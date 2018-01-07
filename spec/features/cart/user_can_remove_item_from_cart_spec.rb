@@ -19,7 +19,7 @@ describe 'visitor visits cart show page' do
 
       click_button 'Remove'
 
-      expect(page).to have_content("You have deleted #{@item.title} from your cart!")
+      expect(page).to have_content("Successfully removed #{@item.title} from your cart.")
 
       expect(page).to have_link("#{@item.title}")
 
