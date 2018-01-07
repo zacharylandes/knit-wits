@@ -11,7 +11,7 @@ require 'csv'
 CSV.foreach("db/seed_data/categories.csv", headers: true, header_converters: :symbol) do |row|
   Category.create!(name: row[:name],
                    slug: row[:slug],
-                   image: Rails.root.join("app/assets/images/#{row[:image]}").open)
+                   image: row[:image])
 end
 
 CSV.foreach("db/seed_data/items.csv", headers: true, header_converters: :symbol) do |row|
@@ -36,13 +36,13 @@ end
 
 CSV.foreach("db/seed_data/orders.csv", headers: true, header_converters: :symbol) do |row|
   Order.create!(status: row[:status].to_i,
-                user_id: (row[:user_id].to_i + 1),
+                user_id: row[:user_id].to_i,
                 created_at: row[:created_at],
                 updated_at: row[:updated_at])
 end
 
 CSV.foreach("db/seed_data/order_items.csv", headers: true, header_converters: :symbol) do |row|
-  OrderItem.create!(item_id: (row[:item_id].to_i + 1),
-                    order_id: (row[:order_id].to_i + 1),
+  OrderItem.create!(item_id: row[:item_id].to_i,
+                    order_id: row[:order_id].to_i,
                     quantity: row[:quantity].to_i)
 end
