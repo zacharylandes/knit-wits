@@ -7,6 +7,14 @@ class OrdersController < ApplicationController
     @orders = Order.where(user: current_user)
   end
 
+  def show
+    @order = Order.find(params[:id])
+    if current_user != @order.user && !current_admin?
+      flash.notice = "Order belongs to another user"
+      redirect_to root_path
+    end
+  end
+
   def create
     @order = Order.create!(user: current_user, status:0)
     @cart.contents.each do |item, quantity|

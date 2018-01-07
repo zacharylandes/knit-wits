@@ -1,0 +1,15 @@
+.view-order {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-address {
+  padding: 10px;
+  border: 0.5px solid $secondary-color;
+  box-shadow: 2px 2px 2px $secondary-color;
+  td {
+    padding: 0 8px 0 8px;
+  }
+}
