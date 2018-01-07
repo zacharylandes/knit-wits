@@ -1,13 +1,6 @@
 describe "user is logged id" do
   it "can edit profile" do
-    user = User.create(username: "Max",
-                       password: "12345",
-                       street: "123 Main St",
-                       city: "Denver",
-                       state: 1,
-                       zipcode: 80525,
-                       full_name: "Max",
-                       role: 0)
+    user = create(:user)
 
     visit "/login"
 

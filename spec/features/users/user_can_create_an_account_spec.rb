@@ -23,5 +23,11 @@ describe 'unregistered can register for account' do
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as #{user.username}")
+    expect(user.username).to eq("katyjane8")
+    expect(user.full_name).to eq("Katy")
+    expect(user.street).to eq("123 main")
+    expect(user.city).to eq("denv")
+    expect(user.state).to eq("CO")
+    expect(user.zipcode).to eq(12345)
   end
 end

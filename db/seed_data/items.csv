@@ -1,0 +1,17 @@
+id,title,description,price,image,category_id,status
+1,Thrummed Mitt,Super warm mitts with extra wooly bits inside,1000.0,thrummed_mitts1.jpg,1,1
+2,Anna's Favorite,Purple wooly hat perfect for a newborn,1000.0,anna_hat.JPG,2,1
+3,Antlers,"Are those real antlers? Of course not, they're made of wool",1500.0,antler_hat.JPG,2,1
+4,Baby Button-Up,Blue baby sweater,7500.0,baby_sweater2.JPG,3,1
+5,Badger,Honey Badger Don't Give a F@CK,2000.0,badger_mitts4.JPG,1,1
+6,Bam Pow,Inspired from retro Batman!,2000.0,bam_pow.JPG,1,1
+7,Blue Cardigan,Wool cardigan with pattern on arms,10000.0,blue_cardi4.JPG,3,1
+8,Goldenrod,What a cool pattern!!,10000.0,goldenrod_sweater.JPG,3,1
+9,Beautiful Blue,Your friends will say Wowzers!!,4500.0,blue_shawl1.JPG,4,1
+10,Foxy,NOT A REAL FOX,4000.0,fox_scarf.jpg,4,1
+11,Joan of Arc,Lead your armies to victory,4500.0,joan_of_arc_scarf.jpg,4,1
+12,Owl You Warm?,"I'm not just warm, I'm HOOT!",2500.0,owl_mitts.JPG,1,1
+13,Space Invader Sweater,Bring back your favorite game with this gem!,10000.0,space_invaders2.JPG,3,1
+14,Hand Puppet,Who won't want to talk to your hand with these mittens,1500.0,hand_puppet1.JPG,1,1
+15,Seaside Cowl,"Seaside inspired cowl, super warm",2500.0,seaside_cowl2.JPG,4,1
+16,Green Cables Hat,Warm green hat with thick styles,2500.0,green_cables_hat.JPG,2,1

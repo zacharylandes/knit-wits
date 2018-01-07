@@ -27,5 +27,5 @@ class Item < ApplicationRecord
   def self.category_with_highest_price
     order("price DESC").first.category
   end
-
+  
 end
