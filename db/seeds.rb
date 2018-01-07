@@ -5,122 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# 16 items
+require 'csv'
 
+CSV.foreach("db/seed_data/categories.csv", headers: true, header_converters: :symbol) do |row|
+  Category.create!(name: row[:name],
+                   slug: row[:slug],
+                   image: Rails.root.join("app/assets/images/#{row[:image]}").open)
+end
 
-mittens = Category.create(name: "Mittens", image: "products/thrummed_mitts1.jpg")
-hats = Category.create(name: "Hats", image: "products/green_cables_hat.JPG")
-sweaters = Category.create(name: "Sweaters", image: "products/baby_sweater2.JPG")
-cowls = Category.create(name: "Cowls", image: "products/blue_shawl1.JPG")
+CSV.foreach("db/seed_data/items.csv", headers: true, header_converters: :symbol) do |row|
+  Item.create!(title: row[:title],
+               description: row[:description],
+               price: row[:price],
+               image: Rails.root.join("app/assets/images/products/#{row[:image]}").open,
+               category_id: (row[:category_id].to_i),
+               status: row[:status].to_i)
+end
 
-Item.create!(title: 'Thrummed Mitt',
-  description: "Super warm mitts with extra wooly bits inside",
-  price: 1000,
-  image: Rails.root.join("app/assets/images/products/thrummed_mitts1.jpg").open,
-  category: mittens,
-  status: 1)
+CSV.foreach("db/seed_data/users.csv", headers: true, header_converters: :symbol) do |row|
+  User.create!(username: row[:username],
+               password: rand(10000).to_s,
+               role: 0,
+               full_name: row[:full_name],
+               street: row[:street],
+               city: row[:city],
+               state: row[:state].to_i,
+               zipcode: row[:zipcode])
+end
 
-Item.create!(title: "Anna's Favorite",
-  description: "Purple wooly hat perfect for a newborn",
-  price: 1000,
-  image: Rails.root.join("app/assets/images/products/anna_hat.JPG").open,
-  category: hats,
-  status: 1)
+CSV.foreach("db/seed_data/orders.csv", headers: true, header_converters: :symbol) do |row|
+  Order.create!(status: row[:status].to_i,
+                user_id: (row[:user_id].to_i + 1),
+                created_at: row[:created_at],
+                updated_at: row[:updated_at])
+end
 
-Item.create!(title: "Antlers",
-  description: "Are those real antlers? Of course not, they're made of wool",
-  price: 1500,
-  image: Rails.root.join("app/assets/images/products/antler_hat.JPG").open,
-  category: hats,
-  status: 1)
-
-Item.create!(title: "Baby Button-Up",
-  description: "Blue baby sweater",
-  price: 7500,
-  image: Rails.root.join("app/assets/images/products/baby_sweater2.JPG").open,
-  category: sweaters,
-  status: 1)
-
-Item.create!(title: "Badger",
-  description: "Honey Badger Don't Give a F@CK",
-  price: 2000,
-  image: Rails.root.join("app/assets/images/products/badger_mitts4.JPG").open,
-  category: mittens,
-  status: 1)
-
-Item.create!(title: "Bam Pow",
-  description: "Inspired from retro Batman!",
-  price: 2000,
-  image: Rails.root.join("app/assets/images/products/bam_pow.JPG").open,
-  category: mittens,
-  status: 1)
-
-Item.create!(title: "Blue Cardigan",
-  description: "Wool cardigan with pattern on arms",
-  price: 10000,
-  image: Rails.root.join("app/assets/images/products/blue_cardi4.JPG").open,
-  category: sweaters,
-  status: 1)
-
-Item.create!(title: "Goldenrod",
-  description: "What a cool pattern!!",
-  price: 10000,
-  image: Rails.root.join("app/assets/images/products/goldenrod_sweater.JPG").open,
-  category: sweaters,
-  status: 1)
-
-Item.create!(title: "Beautiful Blue",
-  description: "Your friends will say Wowzers!!",
-  price: 4500,
-  image: Rails.root.join("app/assets/images/products/blue_shawl1.JPG").open,
-  category: cowls,
-  status: 1)
-
-Item.create!(title: "Foxy",
-  description: "NOT A REAL FOX",
-  price: 4000,
-  image: Rails.root.join("app/assets/images/products/fox_scarf.jpg").open,
-  category: cowls,
-  status: 1)
-
-Item.create!(title: "Joan of Arc",
-  description: "Lead your armies to victory",
-  price: 4500,
-  image: Rails.root.join("app/assets/images/products/joan_of_arc_scarf.jpg").open,
-  category: cowls,
-  status: 1)
-
-Item.create!(title: "Owl You Warm?",
-  description: "I'm not just warm, I'm HOOT!",
-  price: 2500,
-  image: Rails.root.join("app/assets/images/products/owl_mitts.JPG").open,
-  category: mittens,
-  status: 1)
-
-Item.create!(title: "Space Invader Sweater",
-  description: "Bring back your favorite game with this gem!",
-  price: 10000,
-  image: Rails.root.join("app/assets/images/products/space_invaders2.JPG").open,
-  category: sweaters,
-  status: 1)
-
-Item.create!(title: "Hand Puppet",
-  description: "Who won't want to talk to your hand with these mittens",
-  price: 1500,
-  image: Rails.root.join("app/assets/images/products/hand_puppet1.JPG").open,
-  category: mittens,
-  status: 1)
-
-Item.create!(title: "Seaside Cowl",
-  description: "Seaside inspired cowl, super warm",
-  price: 2500,
-  image: Rails.root.join("app/assets/images/products/seaside_cowl2.JPG").open,
-  category: cowls,
-  status: 1)
-
-
-Item.create!(title: "Green Cables Hat",
-  description: "Warm green hat with thick styles",
-  price: 2500,
-  image: Rails.root.join("app/assets/images/products/green_cables_hat.JPG").open,
-  category: hats,
-  status: 1)
+CSV.foreach("db/seed_data/order_items.csv", headers: true, header_converters: :symbol) do |row|
+  OrderItem.create!(item_id: (row[:item_id].to_i + 1),
+                    order_id: (row[:order_id].to_i + 1),
+                    quantity: row[:quantity].to_i)
+end
