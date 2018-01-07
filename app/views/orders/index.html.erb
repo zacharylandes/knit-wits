@@ -9,8 +9,8 @@
   <tr>
     <td  ><%= item.title %></td>
     <td class="cart-item-price"><%= item.price %></td>
-    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).item_quantity(@cart) %></td>
-    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).order_total(@cart) %></td>
+    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).quantity %></td>
+    <td  class="cart-item-quantity"><%= item.order_items.find_by(order_id: order.id).quantity * item.price %></td>
     <% end %>
   </tr>
 <% end %>

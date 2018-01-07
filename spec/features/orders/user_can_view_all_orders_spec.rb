@@ -20,10 +20,10 @@ describe "User can view all orders" do
     it "can view all past orders " do
 
       click_link ('Checkout')
-      save_and_open_page
 
+      visit item_path(@item)
 
-      click_link("1")
+      click_button "Add to Cart"
 
       fill_in "item[quantity]", with: 3
 
@@ -31,13 +31,25 @@ describe "User can view all orders" do
 
       click_link ('Checkout')
 
-      expect(page).to have_content(4)
+      expect(page).to have_content(3)
+      expect(page).to have_content(1)
 
       expect(page).to have_content(15000)
+      expect(page).to have_content(5000)
 
       expect(current_path).to eq(orders_path)
       expect(page).to have_content("order was successfully placed")
 
     end
+
+    it "can view all past orders " do
+
+      click_link ('Checkout')
+
+      visit item_path(@item)
+
+      expect(page).to have_content(0)
+    end
+
   end
 end
