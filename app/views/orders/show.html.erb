@@ -16,9 +16,9 @@
     <tr><td>Zipcode:</td><td><%= @order.user.zipcode %></td></tr>
   </table>
 
-  <table class="cart-contents">
+  <table class="order-contents">
       <th>Knit</th>
-      <th></th>
+      <th>Description</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Subtotal</th>
@@ -29,24 +29,24 @@
         <%= link_to image_tag(asset_path(order_item.item.image)), item_path(order_item.item)  %>
       </td>
       <td><h4><%= order_item.item.title %></h4><%= order_item.item.description %></td>
-      <td class="cart-item-price"><%= order_item.item.price_in_dollars %></td>
-      <td class="cart-item-quantity"><%= order_item.quantity %></td>
-      <td class="cart-item-subtotal"><%= order_item.subtotal_in_dollars %></td>
+      <td class="order-item-price"><%= order_item.item.price_in_dollars %></td>
+      <td class="order-item-quantity"><%= order_item.quantity %></td>
+      <td class="order-item-subtotal"><%= order_item.subtotal_in_dollars %></td>
     </tr>
     <% end %>
     <tr>
       <td></td>
       <td></td>
       <td></td>
-      <td class="cart-item-total">Order Submitted:</td>
-      <td class="cart-item-total"><%= @order.created_at.strftime("%b %d, %Y") %></td>
+      <td class="order-item-total">Order Submitted:</td>
+      <td class="order-item-total"><%= @order.created_at.strftime("%b %d, %Y, %I:%M %p") %></td>
     </tr>
     <tr>
       <td></td>
       <td></td>
       <td></td>
-      <td class="cart-item-total">Knit Total Cost:</td>
-      <td class="cart-item-total"><%= @order.total_in_dollars %></td>
+      <td class="order-item-total">Knit Total Cost:</td>
+      <td class="order-item-total"><%= @order.total_in_dollars %></td>
     </tr>
   </table>
 

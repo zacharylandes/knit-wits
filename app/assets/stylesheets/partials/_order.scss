@@ -13,3 +13,21 @@
     padding: 0 8px 0 8px;
   }
 }
+.order-contents {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-item-price {
+  width: 20%;
+  text-align: center;
+}
+.order-item-quantity {
+  width: 20%;
+  text-align: center;
+}
+.order-item-subtotal {
+  width: 20%;
+  text-align: center;
+}
