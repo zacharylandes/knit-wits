@@ -1,4 +1,7 @@
 <h1>Admin Analytics Dashboard</h1>
 <p>User with the most orders: <%= @user_orders %></p>
 <p>Category with highest price item:
-  <%= @category_with_highest_price.name.capitalize if !@category_with_highest_price.nil?%></p>
+  <%if !@categories_with_highest_price.nil? %>
+      <%= @categories_with_highest_price.first.name.capitalize %>
+  <% end %>
+</p>

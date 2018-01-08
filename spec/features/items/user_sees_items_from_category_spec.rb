@@ -1,11 +1,11 @@
 describe "User visits category index" do
   before(:each) do
     @category1 = create(:category, name: "sweater")
-    @item1 = create(:item, category_id: 1)
-    @item2 = create(:item, category_id: 1)
+    @item1 = create(:item, categories: [@category1])
+    @item2 = create(:item, categories: [@category1])
     @category2 = create(:category, name: "mitten")
-    @item3 = create(:item, category_id: 2)
-    @item4 = create(:item, category_id: 2)
+    @item3 = create(:item, categories: [@category2])
+    @item4 = create(:item, categories: [@category2])
   end
 
   describe "user can view all items in certain category" do

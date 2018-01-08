@@ -4,7 +4,7 @@ describe "admin can edit items " do
         before(:each) do
         @category = create(:category)
         @admin = create(:user, role:1)
-        @item = create(:item)
+        @item = create(:item, categories: [@category])
         end
 
       it "allows admin to update status" do
@@ -33,18 +33,19 @@ describe "admin can edit items " do
 
       expect(current_path).to eq(edit_admin_item_path(@item))
 
-
       attach_file('item[image]', File.absolute_path('app/assets/images/image.jpeg'))
       fill_in "item[title]", :with => "pantalones"
       fill_in "item[description]", :with => "the warmest"
       fill_in "item[price]", :with => 2.00
       select "active", :from => "item[status]"
-      select "#{@category.name}", :from => "item[category_id]"
+      select "#{@category.name}", :from => "item[categories][]"
       click_on ("Update Item")
 
 
       expect(current_path).to eq(admin_items_path)
       expect(page).to have_content("pantalones")
+      expect(page).to have_content("the warmest")
+
     end
 
 
