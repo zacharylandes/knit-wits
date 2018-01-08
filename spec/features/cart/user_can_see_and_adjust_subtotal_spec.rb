@@ -40,5 +40,14 @@ describe 'user can view cart total' do
       expect(current_path).to eq(cart_path)
       expect(page).to have_content("Knit Total Cost: $200.00")
     end
+
+    it "has no items in cart" do
+      visit cart_path
+
+      expect(page).to have_content("Shopping Cart")
+      expect(page).to have_content("Your cart is currently Empty")
+      expect(page).to have_content("Continue Shopping")
+      expect(page).to have_link("here")
+    end
   end
 end
