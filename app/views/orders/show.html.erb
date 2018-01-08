@@ -28,10 +28,11 @@
       <td class="product-card-thumbnail">
         <%= link_to image_tag(asset_path(order_item.item.image)), item_path(order_item.item)  %>
       </td>
-      <td><h4><%= order_item.item.title %></h4><%= order_item.item.description %></td>
+      <td><h4><%= link_to "#{order_item.item.title}", item_path(order_item.item) %></h4><%= order_item.item.description %></td>
       <td class="order-item-price"><%= order_item.item.price_in_dollars %></td>
       <td class="order-item-quantity"><%= order_item.quantity %></td>
       <td class="order-item-subtotal"><%= order_item.subtotal_in_dollars %></td>
+
     </tr>
     <% end %>
     <tr>
