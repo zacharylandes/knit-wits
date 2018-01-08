@@ -31,7 +31,7 @@ class SeedGenerator
     orders << %w(status user_id created_at updated_at)
     orders_count.times do
       date = Faker::Date.backward(500)
-      orders << [rand(3), #4 different order statuses
+      orders << [rand(0..3), #4 different order statuses
                  rand(1..users_count), # number of users
                  date,
                  date]

@@ -29,5 +29,4 @@ Rails.application.routes.draw do
 
   resources :categories, only: [ :index]
   get "/:category", to: "categories#show", as: "category"
-
 end
