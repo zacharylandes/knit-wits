@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-    helper_method :current_user
-    helper_method :logged_in?
-    before_action :set_cart
-    helper_method :sort_methods
-    helper_method :price_in_dollars
+  helper_method :current_user
+  helper_method :logged_in?
+  before_action :set_cart
+  helper_method :sort_methods
+  helper_method :price_in_dollars
 
   before_action :set_cart
 
@@ -56,6 +56,14 @@ class ApplicationController < ActionController::Base
 
     def set_cart
       @cart = Cart.new(session[:cart])
+    end
+
+    def render_404
+      respond_to do |format|
+        format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+        format.xml  { head :not_found }
+        format.any  { head :not_found }
+      end
     end
 
 end

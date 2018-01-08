@@ -1,0 +1,41 @@
+<table class="cart-contents">
+    <th>Knit</th>
+    <th></th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+    <th></th>
+  <% @items.each do |item| %>
+  <tr>
+    <td class="product-card-thumbnail">
+      <%= link_to image_tag(asset_path(item.image)), item_path(item)  %>
+    </td>
+    <td><h4><%= item.title %></h4><%= item.description %></td>
+    <td class="cart-item-price"><%= item.price %></td>
+    <td class="cart-item-quantity">
+      <%= form_for item, {method: :put, url: cart_path(item_id: item.id)} do |f| %>
+        <%= f.number_field :quantity,
+                           {value: @cart.count_of(item.id),
+                            min: 0,
+                            class: "update"} %><br/>
+        <%= f.submit "Update" %>
+      <% end %>
+    </td>
+    <td class="cart-item-subtotal"><%= @cart.item_subtotal(item.price, item.id) %></td>
+    <td><%= button_to "Remove", cart_path(item_id: item.id), method: :delete %> </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="cart-item-total">Knit Total Cost:</td>
+    <td class="cart-item-total"><%= number_to_currency(cart_total_price/100) %></td>
+  </tr>
+</table>
+
+<% if logged_in? %>
+  <%= link_to "Checkout", orders_path, :method => 'post' %>
+<% else %>
+  <%= link_to "Login or Create Account to Checkout", login_path %>
+<% end %>

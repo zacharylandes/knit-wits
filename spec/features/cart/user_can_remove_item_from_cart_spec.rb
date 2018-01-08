@@ -29,10 +29,8 @@ describe 'visitor visits cart show page' do
 
       expect(page).to have_link("#{@item.title}")
 
-      within(".cart-contents") do
-        expect(page).to_not have_content("#{@item.title}")
-      end
-
+      expect(page).to have_content("Shopping Cart")
+      expect(page).to have_content("Your cart is currently Empty")
     end
   end
 end

@@ -34,8 +34,8 @@
       <td><%= button_to "mark as paid", order_path(order, status: "Paid"), method: :put%></td>
       <td><%= button_to "cancel", order_path(order, status: "Cancelled"), method: :put %></td>
     <% elsif order.status == "Paid" %>
-      <td><%= button_to "mark as completed", order_path(order, status: "Completed"), method: :put%>%></td>
-      <td><%= button_to "cancel", order_path(order, status: "Cancelled"), method: :put %> %></td>
+      <td><%= button_to "mark as completed", order_path(order, status: "Completed"), method: :put%></td>
+      <td><%= button_to "cancel", order_path(order, status: "Cancelled"), method: :put %></td>
     <% else %>
       <td></td>
       <td></td>

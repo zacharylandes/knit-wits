@@ -1,10 +1,4 @@
-<div class='login-page'>
-  <div class='form'>
-    <div class='log-in-form'>
-<%= render partial: "form" %>
-</div>
-</div>
-</div>
+<h3><%= link_to "Create New Item", new_admin_item_path %></h3>
 
   <div class = "all-items">
     <% @items.each do |item| %>

@@ -1,23 +1,29 @@
 class Admin::ItemsController < Admin::BaseController
   def index
-    @item = Item.new
     @items = Item.all.paginate(:page => params[:page], :per_page => 15)
     @category =Category.all
   end
 
+  def show
+    redirect_to admin_items_path
+  end
+
   def new
     @item = Item.new
+    @category =Category.all
   end
 
   def create
     @item =Item.new(item_params)
-    if @item.save!
+    if item_params[:image].nil? && @item.save
+      @item.update_column(:image, "app/assets/images/item_default.jpg")
       redirect_to admin_items_path
+    elsif @item.save
+      redirect_to admin_items_path
+    else
+      flash.notice = "Invalid Attributes, Make Sure Item Attributes are Valid"
+      redirect_to new_admin_item_path
     end
-  end
-
-  def show
-    redirect_to admin_items_path
   end
 
   def edit

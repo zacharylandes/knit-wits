@@ -12,6 +12,14 @@
     margin: 0;
   }
 
+  .rails-default-error-page img {
+    height: 150px;
+  }
+
+  .rails-default-error-page nav {
+    background-color: #3E442b;
+  }
+
   .rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
@@ -23,7 +31,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #3E442b solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +41,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #3E442b;
     line-height: 1.5em;
   }
 
@@ -55,9 +63,12 @@
 </head>
 
 <body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
+  <nav>
+    <a href="https://knit-wits.herokuapp.com"><img src="knitwits.png" alt="Tabled Yarn"></a>
+  </nav>
   <div class="dialog">
     <div>
+      <img src="tangled_yarn.png" alt="Tabled Yarn">
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>

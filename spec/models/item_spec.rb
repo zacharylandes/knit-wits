@@ -51,6 +51,39 @@ describe Item do
       expect(item).to be_invalid
     end
 
+    it "is invalid negative price" do
+      item = Item.new(title: "item",
+                      description: "description",
+                      price: -1,
+                      image: "item_default.jpg",
+                      category: create(:category),
+                      status: 1)
+
+      expect(item).to be_invalid
+    end
+
+    it "is invalid zero price" do
+      item = Item.new(title: "item",
+                      description: "description",
+                      price: 0,
+                      image: "item_default.jpg",
+                      category: create(:category),
+                      status: 1)
+
+      expect(item).to be_invalid
+    end
+
+    it "is valid price greater than zero" do
+      item = Item.new(title: "item",
+                      description: "description",
+                      price: 1,
+                      image: "item_default.jpg",
+                      category: create(:category),
+                      status: 1)
+
+      expect(item).to be_valid
+    end
+
     it "is invalid with a category" do
       item = Item.new(title: "item",
                       description: "description",
