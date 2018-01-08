@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :item_categories
-  has_many :category, through: :item_categories
+  has_many :categories, through: :item_categories
   has_many :order_items
   has_many :orders, through: :order_items
   validates_presence_of :title, :status, :description, :price
@@ -27,8 +27,8 @@ class Item < ApplicationRecord
     status == "out_of_stock"
   end
 
-  def self.category_with_highest_price
-    order("price DESC").first.category
+  def self.categories_with_highest_price
+    order("price DESC").first.categories
   end
 
 end

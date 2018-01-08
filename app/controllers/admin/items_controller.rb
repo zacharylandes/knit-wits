@@ -10,11 +10,11 @@ class Admin::ItemsController < Admin::BaseController
 
   def new
     @item = Item.new
-    @category =Category.all
+    @category = Category.all
   end
 
   def create
-    @item =Item.new(item_params)
+    @item =Item.new(item_attributes)
     if item_params[:image].nil? && @item.save
       @item.update_column(:image, "app/assets/images/item_default.jpg")
       redirect_to admin_items_path
@@ -33,7 +33,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
+    @item.update(item_attributes)
     flash[:success] = "item updated!"
     redirect_to admin_items_path
   end
@@ -48,7 +48,22 @@ class Admin::ItemsController < Admin::BaseController
 private
 
   def item_params
-    params.require(:item).permit(:title,:description, :price, :image,:categories, :status)
+    params.require(:item).permit(:title,:description, :price, :image, {:categories => []}, :status)
   end
 
+  def item_categories(item_params)
+    categories = item_params[:categories]
+    categories.reduce([]) do |results, category|
+      if category != ""
+        results << Category.find(category)
+      end
+      results
+    end
+  end
+
+  def item_attributes
+    item_attributes = item_params
+    item_attributes[:categories] = item_categories(item_params) if item_params[:categories]
+    item_attributes
+  end
 end

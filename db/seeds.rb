@@ -19,8 +19,12 @@ CSV.foreach("db/seed_data/items.csv", headers: true, header_converters: :symbol)
                description: row[:description],
                price: row[:price],
                image: Rails.root.join("app/assets/images/products/#{row[:image]}").open,
-               category_id: (row[:category_id].to_i),
                status: row[:status].to_i)
+end
+
+CSV.foreach("db/seed_data/item_categories.csv", headers: true, header_converters: :symbol) do |row|
+  ItemCategory.create!(item_id: row[:item_id],
+                       category_id: row[:category_id])
 end
 
 CSV.foreach("db/seed_data/users.csv", headers: true, header_converters: :symbol) do |row|

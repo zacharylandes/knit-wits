@@ -4,8 +4,7 @@ describe Item do
       item = Item.new(title: "item",
                       description: "description",
                       price: 1000,
-                      image: "item_default.jpg",
-                      category: create(:category))
+                      image: "item_default.jpg")
 
       expect(item).to be_invalid
     end
@@ -15,7 +14,6 @@ describe Item do
                       description: "description",
                       price: 1000,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_valid
@@ -25,7 +23,6 @@ describe Item do
       item = Item.new(description: "description",
                       price: 1000,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_invalid
@@ -35,7 +32,6 @@ describe Item do
       item = Item.new(title: "item",
                       price: 1000,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_invalid
@@ -45,7 +41,6 @@ describe Item do
       item = Item.new(title: "item",
                       description: "description",
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_invalid
@@ -56,7 +51,6 @@ describe Item do
                       description: "description",
                       price: -1,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_invalid
@@ -67,7 +61,6 @@ describe Item do
                       description: "description",
                       price: 0,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_invalid
@@ -78,25 +71,15 @@ describe Item do
                       description: "description",
                       price: 1,
                       image: "item_default.jpg",
-                      category: create(:category),
                       status: 1)
 
       expect(item).to be_valid
     end
-
-    it "is invalid with a category" do
-      item = Item.new(title: "item",
-                      description: "description",
-                      price: 1000,
-                      image: "item_default.jpg",
-                      status: 1)
-
-      expect(item).to be_invalid
-    end
   end
 
   describe "relationships", type: :model do
-    it { should belong_to(:category)}
+    it { should have_many(:categories)}
+    it { should have_many(:item_categories)}
     it { should have_many(:orders)}
   end
 

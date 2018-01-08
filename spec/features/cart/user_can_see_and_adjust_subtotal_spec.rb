@@ -22,7 +22,7 @@ describe 'user can view cart total' do
 
       expect(current_path).to eq(cart_path)
       expect(page).to have_link("#{@item.title}")
-      expect(page).to have_content("#{total}")
+      expect(page).to have_content("$100.00")
     end
 
     it 'user can decrease item, total changes' do

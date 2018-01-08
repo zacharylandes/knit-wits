@@ -2,7 +2,7 @@ describe "Admin sees user breakdown on analytics page for categories" do
   scenario "will see category with highest price item" do
     admin = create(:admin)
     category = create(:category)
-    item = create(:item, category_id: category.id)
+    item = create(:item, categories: [category])
     user = create(:user)
     order1 = create(:order, user_id: user.id)
     order2 = create(:order, user_id: user.id)
