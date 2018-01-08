@@ -1,0 +1,4 @@
+class ItemCategory < ApplicationRecord
+  
+
+end

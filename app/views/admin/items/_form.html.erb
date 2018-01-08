@@ -11,8 +11,8 @@
       <p>  <%= f.select :status, ['retired', 'active', 'out_of_stock'] %></p>
       <p>  <%= f.label :image %><br></p>
       <p>  <%= f.file_field :image %></p>
-      <p><%= f.label :category %></p>
-      <p><%= f.collection_select :category_id, @category,:id,:name,{prompt: true}%></p>
+      <p><%= f.label :categories %></p>
+      <p><%= f.collection_select :categories, @category,:id,:name,{prompt: false}, {multiple: true}%></p>
       <p>  <%= f.submit %></p>
     </div>
   <% end %>
