@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   require 'date'
 
   def index
-    @orders = Order.where(user: current_user)
+    @orders = Order.where(user: current_user).order("id ASC")
   end
 
   def show
@@ -29,7 +29,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if params[:status] && current_admin?
       @order.update(status: params[:status])
-      redirect_to admin_dashboard_path
+      flash.notice = "Order #{@order.id} Status was updated to #{params[:status]}"
+      redirect_to admin_dashboard_path(filter: params[:filter])
     end
   end
 
