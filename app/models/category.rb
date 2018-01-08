@@ -8,4 +8,12 @@ class Category < ApplicationRecord
   def generate_slug
     self.slug = name.parameterize
   end
+
+  def highest_priced_item
+    items.order("price DESC").first
+  end
+
+  def total_orders
+    items.joins(:order_items).group(:order_id).count.length
+  end
 end
