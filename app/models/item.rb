@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
   validates_presence_of :title, :status, :description, :price
+  validates :price, numericality: { greater_than: 0 }
+  validates :title, uniqueness: true
 
   enum status: [:retired, :active, :out_of_stock]
 
@@ -27,5 +29,5 @@ class Item < ApplicationRecord
   def self.category_with_highest_price
     order("price DESC").first.category
   end
-  
+
 end

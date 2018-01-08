@@ -25,6 +25,24 @@ describe "admin can create items " do
       expect(Item.count).to eq(1)
     end
 
+    it "price must be greater than zero" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+      visit admin_items_path
+
+      click_link "Create New Item"
+
+      attach_file('item[image]', File.absolute_path('app/assets/images/image.jpeg'))
+      fill_in "item[title]", :with => "pantalones"
+      fill_in "item[description]", :with => "the warmest"
+      fill_in "item[price]", :with => -12.00
+      select "active", :from => "item[status]"
+      select "#{@category.name}", :from => "item[category_id]"
+      click_on ("Create Item")
+
+      expect(page).to have_content("Invalid Attributes, Make Sure Item Attributes are Valid")
+    end
+
     it "allows admin to see an image" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
@@ -75,6 +93,26 @@ describe "admin can create items " do
       within(:css, '.all-items')do
         page.find('img')['src'].should have_content
       end
+    end
+
+    it "Cannot have items with same name" do
+      create(:item, title: "pantalones")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+      visit admin_items_path
+
+      click_link "Create New Item"
+
+
+      fill_in "item[title]", :with => "pantalones"
+      fill_in "item[description]", :with => "the warmest"
+      fill_in "item[price]", :with => 2.00
+      select "active", :from => "item[status]"
+      select "#{@category.name}", :from => "item[category_id]"
+      click_on ("Create Item")
+
+      expect(page).to have_content("Invalid Attributes, Make Sure Item Attributes are Valid")
+      
     end
   end
 end

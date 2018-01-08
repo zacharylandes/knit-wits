@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :item do
-    title "cool mitten"
+    sequence :title do |n|
+      "cool mitten #{n}"
+    end
     description "super warm"
     price 5000
     category

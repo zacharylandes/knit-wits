@@ -26,7 +26,7 @@ describe "Visitor views their cart" do
 
       click_on "Update"
 
-      expect(page).to have_content("You now have 4 cool mittens in your cart!")
+      expect(page).to have_content("You now have 4 #{@item.title.pluralize} in your cart!")
     end
 
 end
