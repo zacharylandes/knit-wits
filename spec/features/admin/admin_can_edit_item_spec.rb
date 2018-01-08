@@ -39,12 +39,12 @@ describe "admin can edit items " do
       fill_in "item[description]", :with => "the warmest"
       fill_in "item[price]", :with => 2.00
       select "active", :from => "item[status]"
-      select "sweater5", :from => "item[category_id]"
+      select "#{@category.name}", :from => "item[category_id]"
       click_on ("Update Item")
+
+
       expect(current_path).to eq(admin_items_path)
       expect(page).to have_content("pantalones")
-
-
     end
 
 

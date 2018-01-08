@@ -11,12 +11,14 @@ describe "admin can create items " do
 
       visit admin_items_path
 
+      click_link "Create New Item"
+
       attach_file('item[image]', File.absolute_path('app/assets/images/image.jpeg'))
       fill_in "item[title]", :with => "pantalones"
       fill_in "item[description]", :with => "the warmest"
       fill_in "item[price]", :with => 2.00
       select "active", :from => "item[status]"
-      select "sweater1", :from => "item[category_id]"
+      select "#{@category.name}", :from => "item[category_id]"
       click_on ("Create Item")
 
       expect(current_path).to eq(admin_items_path)
@@ -27,12 +29,41 @@ describe "admin can create items " do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit admin_items_path
+
+      click_link "Create New Item"
+
       attach_file('item[image]', File.absolute_path('app/assets/images/image.jpeg'))
       fill_in "item[title]", :with => "pantalones"
       fill_in "item[description]", :with => "the warmest"
       fill_in "item[price]", :with => 2.00
       select "active", :from => "item[status]"
-      select "sweater2", :from => "item[category_id]"
+      select "#{@category.name}", :from => "item[category_id]"
+      click_on ("Create Item")
+
+      expect(current_path).to eq(admin_items_path)
+
+      expect(page).to have_content("pantalones")
+      expect(page).to have_content("the warmest")
+      expect(page).to have_content(2.00)
+
+      within(:css, '.all-items')do
+        page.find('img')['src'].should have_content
+      end
+    end
+
+    it "allows image to be optional" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+      visit admin_items_path
+
+      click_link "Create New Item"
+
+
+      fill_in "item[title]", :with => "pantalones"
+      fill_in "item[description]", :with => "the warmest"
+      fill_in "item[price]", :with => 2.00
+      select "active", :from => "item[status]"
+      select "#{@category.name}", :from => "item[category_id]"
       click_on ("Create Item")
 
       expect(current_path).to eq(admin_items_path)
