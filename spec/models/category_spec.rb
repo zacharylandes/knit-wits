@@ -1,4 +1,25 @@
 describe Category do
+  describe "instance methods" do
+    describe "#highest_priced_item" do
+      it "will show highest priced item" do
+        item = create(:item)
+        category = create(:category, items: [item])
+
+        expect(category.highest_priced_item.title).to eq(item.title)
+      end
+    end
+
+    describe "#total_orders" do
+      it "will show the total orders for that category" do
+        item = create(:item)
+        order_items = create(:order_item, item: item)
+        category = create(:category, items: [item])
+
+        expect(category.total_orders).to eq(1)
+      end
+    end
+  end
+
   describe "relationships", type: :model do
     it { should have_many(:items) }
   end
