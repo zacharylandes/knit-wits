@@ -1,6 +1,6 @@
 class Admin::ItemsController < Admin::BaseController
   def index
-    @items = Item.all.paginate(:page => params[:page], :per_page => 15)
+    @items = Item.all.order("id ASC").paginate(:page => params[:page], :per_page => 15)
     @category =Category.all
   end
 

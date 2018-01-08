@@ -1,5 +1,4 @@
 <h1>Admin Dashboard</h1>
-<h4> <%= link_to "Edit Profile", edit_user_path(current_user) %></h4>
 <%= link_to "View Your Items", admin_items_path %>
 <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path %>
 
@@ -18,7 +17,7 @@
 <h3>Orders</h3>
 <%= form_tag admin_dashboard_path, method: :get do %>
   <%= label_tag "Filter" %>
-  <%= select_tag :status, options_for_select(@statuses, params[:status]) %>
+  <%= select_tag :filter, options_for_select(@statuses, params[:filter]) %>
   <%= submit_tag "Apply" %>
 <% end %>
 <table class="all-orders">
@@ -31,11 +30,11 @@
       <td><%= link_to order.id, order_path(order) %></td>
       <td><%= order.status %></td>
     <% if order.status == "Ordered" %>
-      <td><%= button_to "mark as paid", order_path(order, status: "Paid"), method: :put%></td>
-      <td><%= button_to "cancel", order_path(order, status: "Cancelled"), method: :put %></td>
+      <td><%= button_to "mark as paid", order_path(order, status: "Paid", filter: params[:filter]), method: :put%></td>
+      <td><%= button_to "cancel", order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
     <% elsif order.status == "Paid" %>
-      <td><%= button_to "mark as completed", order_path(order, status: "Completed"), method: :put%></td>
-      <td><%= button_to "cancel", order_path(order, status: "Cancelled"), method: :put %></td>
+      <td><%= button_to "mark as completed", order_path(order, status: "Completed", filter: params[:filter]), method: :put%></td>
+      <td><%= button_to "cancel", order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
     <% else %>
       <td></td>
       <td></td>
@@ -43,3 +42,7 @@
   </tr>
   <% end %>
 </table>
+
+<div class="paginate-container">
+  <%= will_paginate @orders %>
+</div>

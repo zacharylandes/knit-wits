@@ -36,11 +36,36 @@ describe "Admin can visit dashboard" do
     it "it can filter orders by status type" do
       visit admin_dashboard_path
 
-      select "Paid", from: "status"
+      select "Paid", from: "filter"
       click_on "Apply"
 
       within ".all-orders" do
         expect(page).to have_content ("Paid")
+        expect(page).to_not have_content ("Ordered")
+        expect(page).to_not have_content ("Cancelled")
+        expect(page).to_not have_content ("Completed")
+      end
+    end
+
+    it "filter stays applied after changing status" do
+      visit admin_dashboard_path
+
+      select "Paid", from: "filter"
+      click_on "Apply"
+
+      within ".all-orders" do
+        expect(page).to have_content ("Paid")
+        expect(page).to_not have_content ("Ordered")
+        expect(page).to_not have_content ("Cancelled")
+        expect(page).to_not have_content ("Completed")
+      end
+
+      within ".all-orders" do
+        click_button "mark as completed"
+      end
+
+      within ".all-orders" do
+        expect(page).to_not have_content ("Paid")
         expect(page).to_not have_content ("Ordered")
         expect(page).to_not have_content ("Cancelled")
         expect(page).to_not have_content ("Completed")

@@ -4,10 +4,10 @@ class Admin::DashboardController < Admin::BaseController
     @orders_by_status = Order.all.group(:status).count
     @statuses = Order.statuses
 
-    if params[:status]
-      @orders = Order.where("status = #{params[:status]}")
+    if !params[:filter].nil?
+      @orders = Order.where("status = #{params[:filter]}").order("id ASC").paginate(:page => params[:page], :per_page => 30)
     else
-      @orders = Order.all
+      @orders = Order.all.order("id ASC").paginate(:page => params[:page], :per_page => 30)
     end
   end
 
