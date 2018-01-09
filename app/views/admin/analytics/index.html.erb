@@ -1,6 +1,19 @@
 <h1>Admin Analytics Dashboard</h1>
 <p>User with the most orders: <%= @user_orders %></p>
 
+<table class="retired-items">
+  <th>Item Title</th>
+  <th>Current Status</th>
+  <th>Times Retired</th>
+  <% @retired_items.each_with_index do |item, index| %>
+  <tr>
+    <td><%= link_to item.title.capitalize, item_path(item) %></td>
+    <td><%= item.status %></td>
+    <td>><%= item.times_retired %></td>
+  </tr>
+  <% end %>
+</table>
+
 <table>
     <th>Category</th>
     <th>Highest Priced Item</th>
@@ -13,17 +26,4 @@
       <td><%= category.total_orders %></td>
     </tr>
 <% end %>
-</table>
-
-<table class="retired-items">
-  <th>Item Title</th>
-  <th>Current Status</th>
-  <th>Times Retired</th>
-  <% @retired_items.each_with_index do |item, index| %>
-  <tr>
-    <td><%= link_to item.title.capitalize, item_path(item) %></td>
-    <td><%= item.status %></td>
-    <td>><%= item.times_retired %></td>
-  </tr>
-  <% end %>
 </table>

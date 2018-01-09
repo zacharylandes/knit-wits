@@ -17,7 +17,6 @@ describe "Admin visits analytics dashboard" do
     item_4_caps = item_4.title.capitalize
     item_5_caps = item_5.title.capitalize
 
-
     within ".retired-items" do
       expect(item_1_caps).to appear_before(item_3_caps)
       expect(item_3_caps).to appear_before(item_2_caps)
