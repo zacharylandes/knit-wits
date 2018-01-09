@@ -8,7 +8,7 @@ describe "User visits item show page" do
     fill_in "password", with: 'password'
     click_on "Log In"
   end
-  
+
   it "can see item details" do
     item = create(:item)
 
@@ -42,7 +42,7 @@ describe "User visits item show page" do
 
     expect(item.active?).to be_falsy
     expect(page).to have_content("Item Retired")
-    expect(page).to have_button "Add to Cart", disabled: true
+    expect(page).to_not have_button "Add to Cart"
   end
 
   it "cannot add item to cart if item status is out_of_stock" do
@@ -52,6 +52,6 @@ describe "User visits item show page" do
 
     expect(item.active?).to be_falsy
     expect(page).to have_content("Out of Stock")
-    expect(page).to have_button "Add to Cart", disabled: true
+    expect(page).to_not have_button "Add to Cart"
   end
 end

@@ -1,5 +1,5 @@
-describe "Admin sees user breakdown on analytics page for categories" do
-  scenario "will see category with highest price item" do
+describe "Admin sees breakdown on analytics page for categories" do
+  scenario "will see category specs" do
     admin = create(:admin)
     category = create(:category)
     item = create(:item, categories: [category])
@@ -15,6 +15,8 @@ describe "Admin sees user breakdown on analytics page for categories" do
     visit admin_analytics_dashboard_path
 
     expect(page).to have_content("Admin Analytics Dashboard")
-    expect(page).to have_content("Category with highest price item: #{category.name.capitalize}")
+    expect(page).to have_content("#{category.name}")
+    expect(page).to have_content("#{category.highest_priced_item.title.capitalize}")
+    expect(page).to have_content("#{category.total_orders}")
   end
 end
