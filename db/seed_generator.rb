@@ -50,6 +50,27 @@ class SeedGenerator
     order_items
   end
 
+  def retired_items
+    retired_items = []
+    retired_items << %w(item_id)
+    item_id = 1
+    [1, 6, 6, 1, 7, 5, 7, 2, 0, 5, 10, 5, 3, 7, 4, 0].each do |times_retired|
+      times_retired.times do
+        retired_items << [item_id]
+      end
+      item_id += 1
+    end
+    retired_items
+  end
+
+  def load_retired_items
+    CSV.open("db/seed_data/retired_items.csv", "w") do |csv|
+      retired_items.each do |resource|
+        csv << resource
+      end
+    end
+  end
+
   def load_users
     CSV.open("db/seed_data/users.csv", "w") do |csv|
       users.each do |resource|
