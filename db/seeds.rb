@@ -8,13 +8,13 @@
 # 16 items
 require 'csv'
 
-CSV.foreach("db/seed_data/categories.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/categories.csv", headers: true, header_converters: :symbol) do |row|
   Category.create!(name: row[:name],
                    slug: row[:slug],
                    image: row[:image])
 end
 
-CSV.foreach("db/seed_data/items.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |row|
   Item.create!(title: row[:title],
                description: row[:description],
                price: row[:price],
@@ -22,12 +22,16 @@ CSV.foreach("db/seed_data/items.csv", headers: true, header_converters: :symbol)
                status: row[:status].to_i)
 end
 
-CSV.foreach("db/seed_data/item_categories.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/retired_items.csv", headers: true, header_converters: :symbol) do |row|
+  RetiredItem.create!(item_id: row[:item_id])
+end
+
+CSV.foreach("./data/item_categories.csv", headers: true, header_converters: :symbol) do |row|
   ItemCategory.create!(item_id: row[:item_id],
                        category_id: row[:category_id])
 end
 
-CSV.foreach("db/seed_data/users.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/users.csv", headers: true, header_converters: :symbol) do |row|
   User.create!(username: row[:username],
                password: rand(10000).to_s,
                role: 0,
@@ -38,14 +42,14 @@ CSV.foreach("db/seed_data/users.csv", headers: true, header_converters: :symbol)
                zipcode: row[:zipcode])
 end
 
-CSV.foreach("db/seed_data/orders.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/orders.csv", headers: true, header_converters: :symbol) do |row|
   Order.create!(status: row[:status].to_i,
                 user_id: row[:user_id].to_i,
                 created_at: row[:created_at],
                 updated_at: row[:updated_at])
 end
 
-CSV.foreach("db/seed_data/order_items.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/order_items.csv", headers: true, header_converters: :symbol) do |row|
   OrderItem.create!(item_id: row[:item_id].to_i,
                     order_id: row[:order_id].to_i,
                     quantity: row[:quantity].to_i)

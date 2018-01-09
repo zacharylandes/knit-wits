@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   helper_method :sort_methods
   helper_method :price_in_dollars
+  helper_method :states_helper
 
   before_action :set_cart
 
@@ -39,9 +40,15 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-    def price_in_dollars(price)
-      "$#{sprintf('%.2f', price/100)}"
-    end
+  def price_in_dollars(price)
+    "$#{sprintf('%.2f', price/100)}"
+  end
+
+  def states_helper
+    User.states
+  end
+
+
 
 
 

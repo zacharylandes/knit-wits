@@ -1,5 +1,19 @@
 <h1>Admin Analytics Dashboard</h1>
 <p>User with the most orders: <%= @user_orders %></p>
+
+<table class="retired-items">
+  <th>Item Title</th>
+  <th>Current Status</th>
+  <th>Times Retired</th>
+  <% @retired_items.each_with_index do |item, index| %>
+  <tr>
+    <td><%= link_to item.title.capitalize, item_path(item) %></td>
+    <td><%= item.status %></td>
+    <td>><%= item.times_retired %></td>
+  </tr>
+  <% end %>
+</table>
+
 <table>
     <th>Category</th>
     <th>Highest Priced Item</th>
@@ -11,5 +25,18 @@
       <td><%= link_to item.title.capitalize, item_path(item) %></td>
       <td><%= category.total_orders %></td>
     </tr>
-    <% end %>
+<% end %>
+</table>
+
+<p>Orders by State:  </p>
+<%= link_to "Sort by Order Count", admin_analytics_dashboard_path(sort: "count"), method: :get, class: "button" %>
+<table class="order-by-state">
+  <th>State</th>
+  <th>Completed Orders</th>
+  <% @orders_by_state.each_with_index do |(state, count), index| %>
+    <tr>
+      <td class="state<%=index %>"><%= states_helper.key(state) %></td>
+      <td><%= count %></td>
+    </tr>
+  <% end %>
 </table>
