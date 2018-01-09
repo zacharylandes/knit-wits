@@ -13,3 +13,15 @@
     </tr>
     <% end %>
 </table>
+
+<p>Orders by State: <%=  %> </p>
+<table class="order-by-state">
+  <th>State</th>
+  <th>Completed Orders</th>
+  <% @orders_by_state.each do |state, order| %>
+    <tr>
+      <td><%= state %></td>
+      <td><%= order %></td>
+    </tr>
+  <% end %>
+</table>
