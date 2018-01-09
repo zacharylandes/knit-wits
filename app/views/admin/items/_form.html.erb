@@ -12,7 +12,7 @@
       <p>  <%= f.label :image %><br></p>
       <p>  <%= f.file_field :image %></p>
       <p><%= f.label "Categories (select any that apply)" %></p>
-      <p><%= f.collection_select :categories, @category, :id, :name, {prompt: false}, {multiple: true}%></p>
+      <p><%= f.collection_select :categories, @category, :id, :name, {prompt: false}, {multiple: true, :required => true} %></p>
       <p>  <%= f.submit %></p>
     </div>
   <% end %>
