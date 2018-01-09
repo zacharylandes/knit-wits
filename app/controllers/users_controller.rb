@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_states
+  before_action :require_logged_in, only: [:edit]
+  before_action :is_user, only: [:update]
 
   def new
     @user = User.new
@@ -41,6 +43,10 @@ private
 
   def user_params
     params.require(:user).permit(:username, :password, :street, :city, :state, :zipcode, :full_name)
+  end
+
+  def is_user
+    render file: "/public/404" if current_user.id != params[:id]
   end
 
   def set_states

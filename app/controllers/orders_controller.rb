@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   helper_method :order_sub
   helper_method :order_total
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:create]
 
   def index
     @orders = Order.where(user: current_user).order("id ASC")
@@ -31,8 +31,5 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:status)
   end
 
-  def require_logged_in
-    render file: "/public/404" unless logged_in?
-  end
 
 end
