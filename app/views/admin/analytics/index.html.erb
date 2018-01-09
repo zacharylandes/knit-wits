@@ -28,14 +28,15 @@
 <% end %>
 </table>
 
-<p>Orders by State: <%=  %> </p>
+<p>Orders by State:  </p>
+<%= button_to "Sort by Order Count", admin_analytics_dashboard_path(sort: "count"), method: :get %>
 <table class="order-by-state">
   <th>State</th>
   <th>Completed Orders</th>
-  <% @orders_by_state.each do |state, order| %>
+  <% @orders_by_state.each_with_index do |(state, count), index| %>
     <tr>
-      <td><%= state %></td>
-      <td><%= order %></td>
+      <td class="state<%=index %>"><%= states_helper.key(state) %></td>
+      <td><%= count %></td>
     </tr>
   <% end %>
 </table>
