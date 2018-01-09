@@ -54,7 +54,8 @@ class SeedGenerator
     retired_items = []
     retired_items << %w(item_id)
     item_id = 1
-    [1, 6, 6, 1, 7, 5, 7, 2, 0, 5, 10, 5, 3, 7, 4, 0].each do |times_retired|
+    data_distribution = [1, 6, 6, 1, 7, 5, 7, 2, 0, 5, 10, 5, 3, 7, 4, 0]
+    data_distribution.each do |times_retired|
       times_retired.times do
         retired_items << [item_id]
       end
