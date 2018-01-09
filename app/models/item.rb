@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   mount_uploader :image, ImageUploader
 
+  has_many :retired_items
   has_many :item_categories
   has_many :categories, through: :item_categories
   has_many :order_items
@@ -8,6 +9,7 @@ class Item < ApplicationRecord
   validates_presence_of :title, :status, :description, :price
   validates :price, numericality: { greater_than: 0 }
   validates :title, uniqueness: true
+  after_update :retired_item
 
   enum status: [:retired, :active, :out_of_stock]
 
@@ -27,8 +29,26 @@ class Item < ApplicationRecord
     status == "out_of_stock"
   end
 
+  def times_retired
+    retired_items.count
+  end
+
   def self.categories_with_highest_price
     order("price DESC").first.categories
   end
 
+  def self.retired_items
+    select('items.*, count(retired_items.item_id) as retired_count')
+    .joins(:retired_items)
+    .group('items.id')
+    .order('retired_count DESC')
+  end
+
+  private
+
+    def retired_item
+      if self.status == "retired"
+        RetiredItem.create(item: self)
+      end
+    end
 end

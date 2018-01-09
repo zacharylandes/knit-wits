@@ -4,6 +4,7 @@
 ### In Terminal:
 * `git clone https://github.com/katyjane8/knit-wits.git`
 * `cd knit-wits`.
+* `bundle install`
 * `rails db:create` to create database
 * `rails db:migrate` to migrate database
 * `rails db:seed` to seed database with default data
