@@ -35,7 +35,7 @@ describe "Admin sees orders by state on analytics page for order_items" do
 
     visit admin_analytics_dashboard_path
 
-    click_button "Sort by Order Count"
+    click_link "Sort by Order Count"
 
     save_and_open_page
     expect(page).to have_content("Admin Analytics Dashboard")
