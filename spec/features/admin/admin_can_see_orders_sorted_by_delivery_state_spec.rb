@@ -37,7 +37,6 @@ describe "Admin sees orders by state on analytics page for order_items" do
 
     click_link "Sort by Order Count"
 
-    save_and_open_page
     expect(page).to have_content("Admin Analytics Dashboard")
     expect(page).to have_content("Orders by State:")
     within ".state0" do

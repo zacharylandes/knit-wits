@@ -19,12 +19,13 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
-  resources :orders, only: [:index, :show, :edit, :create, :update]
+  resources :orders, only: [:index, :show, :create]
 
   namespace :admin do
     get 'dashboard', to: "dashboard#index"
     get 'analytics-dashboard', to: "analytics#index"
     resources :items
+    resources :orders, only: [:update]
   end
 
   resources :categories, only: [ :index]

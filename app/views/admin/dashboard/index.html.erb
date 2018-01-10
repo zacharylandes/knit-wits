@@ -30,11 +30,11 @@
       <td><%= link_to order.id, order_path(order) %></td>
       <td><%= order.status %></td>
     <% if order.status == "Ordered" %>
-      <td><%= button_to "mark as paid", order_path(order, status: "Paid", filter: params[:filter]), method: :put%></td>
-      <td><%= button_to "cancel", order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
+      <td><%= button_to "mark as paid", admin_order_path(order, status: "Paid", filter: params[:filter]), method: :put%></td>
+      <td><%= button_to "cancel", admin_order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
     <% elsif order.status == "Paid" %>
-      <td><%= button_to "mark as completed", order_path(order, status: "Completed", filter: params[:filter]), method: :put%></td>
-      <td><%= button_to "cancel", order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
+      <td><%= button_to "mark as completed", admin_order_path(order, status: "Completed", filter: params[:filter]), method: :put%></td>
+      <td><%= button_to "cancel", admin_order_path(order, status: "Cancelled", filter: params[:filter]), method: :put %></td>
     <% else %>
       <td></td>
       <td></td>

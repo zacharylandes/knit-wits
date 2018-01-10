@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   helper_method :order_sub
   helper_method :order_total
-  require 'date'
+  before_action :require_logged_in, only: [:create]
 
   def index
     @orders = Order.where(user: current_user).order("id ASC")
@@ -25,20 +25,11 @@ class OrdersController < ApplicationController
       redirect_to orders_path
   end
 
-  def update
-    @order = Order.find(params[:id])
-    if params[:status] && current_admin?
-      @order.update(status: params[:status])
-      flash.notice = "Order #{@order.id} Status was updated to #{params[:status]}"
-      redirect_to admin_dashboard_path(filter: params[:filter])
-    end
-  end
-
-
-private
+  private
 
   def order_params
     params.require(:order).permit(:status)
   end
+
 
 end
