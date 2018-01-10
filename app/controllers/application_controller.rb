@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def item_sort
     [
-      ["Alphabetically, A-Z", "title ASC"],
-      ["Alphabetically, Z-A", "title DESC"],
+      ["Title, A-Z", "title ASC"],
+      ["Title, Z-A", "title DESC"],
       ["Price, Low to High", "price ASC"],
       ["Price, High to Low", "price DESC"]
     ]
