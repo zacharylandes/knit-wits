@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_states
-  before_action :is_user, only: [:show, :edit, :update]
+  before_action :is_user, only: [:edit, :update]
 
   def new
     @user = User.new
+    @button_text = "Register"
   end
 
   def create
@@ -18,11 +19,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    render file: "/public/404"
   end
 
   def edit
     @user = User.find(params[:id])
+    @button_text = "Update my Account"
   end
 
   def update
