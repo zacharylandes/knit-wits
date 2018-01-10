@@ -20,14 +20,6 @@ describe Cart do
       end
     end
 
-    describe "#remove_item" do
-      it "removes item from card regardless of quantity" do
-        subject.remove_item(1)
-
-        expect(subject.contents).to eq({"4" => 3})
-      end
-    end
-
     describe "#add_item" do
       it "can add item to cart with items" do
         subject.add_item(1)
@@ -43,6 +35,21 @@ describe Cart do
         expect(cart.contents).to eq("1"=>1)
       end
     end
+
+    describe "#remove_item" do
+      it "removes item from card regardless of quantity" do
+        subject.remove_item(1)
+
+        expect(subject.contents).to eq({"4" => 3})
+      end
+    end
+
+    describe '#item_subtotal' do
+      it "returns the item subtotal when given a price and id" do
+        expect(subject.item_subtotal(23, "1")).to eq(46)
+      end
+    end
+
     describe '#adjust_item' do
       it 'can adjust item amount' do
         subject.adjust_item(1,4)

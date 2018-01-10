@@ -6,10 +6,11 @@ class Item < ApplicationRecord
   has_many :categories, through: :item_categories
   has_many :order_items
   has_many :orders, through: :order_items
+
   validates_presence_of :title, :status, :description, :price
   validates :price, numericality: { greater_than: 0 }
   validates :title, uniqueness: true
-  after_update :retired_item
+  after_update :retire_item
 
   enum status: [:retired, :active, :out_of_stock]
 
@@ -52,7 +53,7 @@ class Item < ApplicationRecord
 
   private
 
-    def retired_item
+    def retire_item
       if self.status == "retired"
         RetiredItem.create(item: self)
       end

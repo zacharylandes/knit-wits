@@ -1,4 +1,45 @@
 describe Item do
+  describe "relationships", type: :model do
+    it { should have_many(:categories).through(:item_categories)}
+    it { should have_many(:retired_items)}
+    it { should have_many(:orders).through(:order_items)}
+  end
+
+  describe "instance methods" do
+    it "#price_in_dollars" do
+      item = create(:item, price: 5000)
+
+      expect(item.price_in_dollars). to eq("$50.00")
+    end
+
+    it "#active?" do
+      active_item = create(:item, price: 5000, status: 1)
+      inactive_item = create(:item, price: 5000, status: 0)
+
+      expect(active_item.active?).to be_truthy
+      expect(inactive_item.active?).to be_falsy
+    end
+
+    it "#retired?" do
+      retired_item = create(:item, price: 5000, status: 0)
+
+      expect(retired_item.retired?).to be_truthy
+    end
+
+    it "#out_of_stock?" do
+      out_of_stock_item = create(:item, price: 5000, status: 2)
+
+      expect(out_of_stock_item.out_of_stock?).to be_truthy
+    end
+
+    it "#times_retired" do
+      item = create(:item)
+      create_list(:retired_item, 5, item: item)
+
+      expect(item.times_retired).to eq(5)
+    end
+  end
+
   describe "validations" do
     it "is invalid without status" do
       item = Item.new(title: "item",
@@ -74,40 +115,6 @@ describe Item do
                       status: 1)
 
       expect(item).to be_valid
-    end
-  end
-
-  describe "relationships", type: :model do
-    it { should have_many(:categories)}
-    it { should have_many(:item_categories)}
-    it { should have_many(:orders)}
-  end
-
-  describe "instance methods" do
-    it "#price_in_dollars" do
-      item = create(:item, price: 5000)
-
-      expect(item.price_in_dollars). to eq("$50.00")
-    end
-
-    it "#active?" do
-      active_item = create(:item, price: 5000, status: 1)
-      inactive_item = create(:item, price: 5000, status: 0)
-
-      expect(active_item.active?).to be_truthy
-      expect(inactive_item.active?).to be_falsy
-    end
-
-    it "#retired?" do
-      retired_item = create(:item, price: 5000, status: 0)
-
-      expect(retired_item.retired?).to be_truthy
-    end
-
-    it "#out_of_stock?" do
-      out_of_stock_item = create(:item, price: 5000, status: 2)
-
-      expect(out_of_stock_item.out_of_stock?).to be_truthy
     end
   end
 end
