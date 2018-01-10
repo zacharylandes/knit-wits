@@ -1,0 +1,31 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  .dashboard-info {
+    height: auto;
+    margin: 30px 90px 200px 50px;
+    .dashboard-info-box {
+      background-color: $secondary-color;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 30px;
+      text-align: center;
+      table, td, th {
+        padding: 5px;
+      }
+    }
+  }
+  .dashboard-orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $secondary-color;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 30px;
+    text-align: center;
+    .all-orders {
+      padding: 10px;
+    }
+  }
+}
