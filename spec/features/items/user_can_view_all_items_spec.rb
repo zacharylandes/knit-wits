@@ -41,11 +41,13 @@ describe "user can view all items" do
   end
 
   describe "User can use sort dropdown" do
-    it "is sorted by item title Alphabetically" do
-      item_a = create(:item, title: "A", price: 123)
-      item_m = create(:item, title: "M", price: 53)
-      item_x = create(:item, title: "X", price: 100)
+    before(:each) do
+      create(:item, title: "A", price: 123)
+      create(:item, title: "M", price: 53)
+      create(:item, title: "X", price: 100)
+    end
 
+    it "is sorted by item title Alphabetically" do
       visit items_path
 
       select("Title, A-Z")
@@ -65,10 +67,6 @@ describe "user can view all items" do
     end
 
     it "is sorted by item title reverse Alphabetically" do
-      item_a = create(:item, title: "A", price: 123)
-      item_m = create(:item, title: "M", price: 53)
-      item_x = create(:item, title: "X", price: 100)
-
       visit items_path
 
       select("Title, Z-A")
@@ -88,10 +86,6 @@ describe "user can view all items" do
     end
 
     it "is sorted by item price high to low" do
-      item_a = create(:item, title: "A", price: 123)
-      item_m = create(:item, title: "M", price: 53)
-      item_x = create(:item, title: "X", price: 100)
-
       visit items_path
 
       select("Price, High to Low")
@@ -111,10 +105,6 @@ describe "user can view all items" do
     end
 
     it "is sorted by item price low to high" do
-      item_a = create(:item, title: "A", price: 123)
-      item_m = create(:item, title: "M", price: 53)
-      item_x = create(:item, title: "X", price: 100)
-
       visit items_path
 
       select("Price, Low to High")

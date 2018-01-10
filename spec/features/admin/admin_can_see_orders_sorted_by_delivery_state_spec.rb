@@ -1,14 +1,16 @@
 describe "Admin sees orders by state on analytics page for order_items" do
-  scenario "will see orders by state Alphabetically" do
-    admin = create(:admin)
+  before(:each) do
+    @admin = create(:admin)
     user = create(:user, state: "KS")
     order1 = create(:order, user_id: user.id, status: "Completed")
     order2 = create(:order, user_id: user.id, status: "Completed")
     order3 = create(:order, user_id: user.id, status: "Completed")
     user1 = create(:user, state: "CO")
     order4 = create(:order, user_id: user1.id, status: "Completed")
+  end
 
-    login_as(admin)
+  scenario "will see orders by state Alphabetically" do
+    login_as(@admin)
 
     visit admin_analytics_dashboard_path
 
@@ -23,15 +25,7 @@ describe "Admin sees orders by state on analytics page for order_items" do
   end
 
   scenario "will see order sorted by order count ascending per state" do
-    admin = create(:admin)
-    user = create(:user, state: "KS")
-    order1 = create(:order, user_id: user.id, status: "Completed")
-    order2 = create(:order, user_id: user.id, status: "Completed")
-    order3 = create(:order, user_id: user.id, status: "Completed")
-    user1 = create(:user, state: "CO")
-    order4 = create(:order, user_id: user1.id, status: "Completed")
-
-    login_as(admin)
+    login_as(@admin)
 
     visit admin_analytics_dashboard_path
 
@@ -49,15 +43,7 @@ describe "Admin sees orders by state on analytics page for order_items" do
   end
 
   scenario "will see order sorted by order count descending per state" do
-    admin = create(:admin)
-    user = create(:user, state: "KS")
-    order1 = create(:order, user_id: user.id, status: "Completed")
-    order2 = create(:order, user_id: user.id, status: "Completed")
-    order3 = create(:order, user_id: user.id, status: "Completed")
-    user1 = create(:user, state: "CO")
-    order4 = create(:order, user_id: user1.id, status: "Completed")
-
-    login_as(admin)
+    login_as(@admin)
 
     visit admin_analytics_dashboard_path
 
@@ -75,15 +61,7 @@ describe "Admin sees orders by state on analytics page for order_items" do
   end
 
   scenario "will see order sorted by state reverse Alphabetically" do
-    admin = create(:admin)
-    user = create(:user, state: "KS")
-    order1 = create(:order, user_id: user.id, status: "Completed")
-    order2 = create(:order, user_id: user.id, status: "Completed")
-    order3 = create(:order, user_id: user.id, status: "Completed")
-    user1 = create(:user, state: "CO")
-    order4 = create(:order, user_id: user1.id, status: "Completed")
-
-    login_as(admin)
+    login_as(@admin)
 
     visit admin_analytics_dashboard_path
 
