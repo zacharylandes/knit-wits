@@ -4,19 +4,19 @@
     <div class='log-in-form'>
       <%= form_for @user do |f| %>
       <%= f.label :username %><br/>
-      <%= f.text_field :username, placeholder: :username %><br/>
+      <%= f.text_field :username, placeholder: :username, required: true %><br/>
       <%= f.label :password %><br/>
-      <%= f.password_field :password, placeholder: :password %><br/>
+      <%= f.password_field :password, placeholder: :password, required: true %><br/>
       <%= f.label :full_name %><br/>
-      <%= f.text_field :full_name, placeholder: :full_name %><br/>
+      <%= f.text_field :full_name, placeholder: :full_name, required: true %><br/>
       <%= f.label :street %><br/>
-      <%= f.text_field :street, placeholder: :street %><br/>
+      <%= f.text_field :street, placeholder: :street, required: true %><br/>
       <%= f.label :city %><br/>
-      <%= f.text_field :city, placeholder: :city %><br/>
+      <%= f.text_field :city, placeholder: :city, required: true %><br/>
       <%= f.label :state %><br/>
       <%= f.select(:state, @states) %><br/>
       <%= f.label :zipcode %><br/>
-      <%= f.text_field :zipcode, placeholder: :zipcode %><br/>
+      <%= f.text_field :zipcode, placeholder: :zipcode, required: true %><br/>
       <%= f.submit "#{@button_text}", class: :submit %>
       <% end %>
     </div>

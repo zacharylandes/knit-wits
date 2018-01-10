@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: true
-  validates_presence_of :role, :street, :state, :zipcode, :city
+  validates_presence_of :full_name, :street, :state, :zipcode, :city
   has_many :orders
 
   enum role: %w(default admin)
