@@ -1,5 +1,4 @@
 <div class="view-order">
-
   <% if @order.status == "Completed" %>
     <h3>Order Completed On: <%= @order.updated_at.strftime("%b %d, %Y") %></h3>
   <% elsif @order.status == "Cancelled"%>
@@ -7,7 +6,6 @@
   <% else %>
     <h3>Order Status: <%= @order.status %></h3>
   <% end %>
-
   <table class="address">
     <tr><td>Full Name: </td><td><%= @order.user.full_name %></td></tr>
     <tr><td>Street Address: </td><td><%= @order.user.street %></td></tr>
@@ -15,7 +13,6 @@
     <tr><td>State: </td><td><%= @order.user.state %></td></tr>
     <tr><td>Zipcode:</td><td><%= @order.user.zipcode %></td></tr>
   </table>
-
   <table class="order-contents">
       <th>Knit</th>
       <th>Description</th>
@@ -32,7 +29,6 @@
       <td class="order-item-price"><%= order_item.item.price_in_dollars %></td>
       <td class="order-item-quantity"><%= order_item.quantity %></td>
       <td class="order-item-subtotal"><%= order_item.subtotal_in_dollars %></td>
-
     </tr>
     <% end %>
     <tr>
@@ -50,7 +46,4 @@
       <td class="order-item-total"><%= @order.total_in_dollars %></td>
     </tr>
   </table>
-
-
-
 </div>
