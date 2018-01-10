@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       OrderItem.create(item_id: item.to_i, order_id: @order.id, quantity: quantity)
     end
       session[:cart].clear
-      flash[:success] = "You order was successfully placed"
+      flash[:success] = "You order was successfully placed!"
       redirect_to orders_path
   end
 

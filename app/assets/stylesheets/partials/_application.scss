@@ -105,6 +105,16 @@ th {
   padding: 2px;
   color: red;
 }
+.success{
+  width: 250px;
+  border: 2px solid lighten($primary-color, 5%);
+  border-radius: 10px;
+  text-align: center;
+  background-color: #BDC2BF;
+  margin-top: 20px;
+  padding: 2px;
+  color: lighten($primary-color, 5%);
+}
 .nav-logged-in {
   display: flex;
   justify-content: flex-end;
