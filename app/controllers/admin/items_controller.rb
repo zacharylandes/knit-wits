@@ -1,6 +1,12 @@
 class Admin::ItemsController < Admin::BaseController
+  helper_method :item_status_filter
+
   def index
-    @items = Item.all.order("id ASC").paginate(:page => params[:page], :per_page => 15)
+    if params[:filter].nil? || params[:filter] == "all"
+      @items = Item.sort(params[:sort])
+    else
+      @items = Item.sort(params[:sort]).where(status: params[:filter])
+    end
     @category =Category.all
   end
 
@@ -33,9 +39,15 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_attributes)
-    flash[:success] = "item updated!"
-    redirect_to admin_items_path
+    if params[:status]
+      @item.update(status: params[:status])
+      flash[:success] = "Item Status Updated to #{@item.status}!"
+      redirect_to admin_items_path
+    else
+      @item.update(item_attributes)
+      flash[:success] = "Item Updated!"
+      redirect_to admin_items_path
+    end
   end
 
   def destroy
@@ -46,6 +58,14 @@ class Admin::ItemsController < Admin::BaseController
   end
 
 private
+
+  def item_status_filter
+    [
+      ["All", "all"],
+      ["Retired", "retired"],
+      ["Active", "active"]
+    ]
+  end
 
   def item_params
     params.require(:item).permit(:title,:description, :price, :image, {:categories => []}, :status)

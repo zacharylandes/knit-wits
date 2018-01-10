@@ -83,9 +83,9 @@ describe "admin can create items " do
 
       expect(page).to have_content("pantalones")
       expect(page).to have_content("the warmest")
-      expect(page).to have_content(2.00)
+      expect(page).to have_content("$0.02")
 
-      within(:css, '.all-items')do
+      within('#0')do
         page.find('img')['src'].should have_content
       end
     end
@@ -109,9 +109,9 @@ describe "admin can create items " do
 
       expect(page).to have_content("pantalones")
       expect(page).to have_content("the warmest")
-      expect(page).to have_content(2.00)
+      expect(page).to have_content("$0.02")
 
-      within(:css, '.all-items')do
+      within('#0')do
         page.find('img')['src'].should have_content
       end
     end

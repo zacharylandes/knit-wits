@@ -1,24 +1,41 @@
 <h3><%= link_to "Create New Item", new_admin_item_path %></h3>
-
-  <div class = "all-items">
-    <% @items.each do |item| %>
-      <div class="product-card">
-        <div class="product-card-thumbnail">
-      <%= image_tag item.image.url unless item.image.url.nil? %>
-    </div>
-       <%= link_to "#{item.title}", item_path(item) %></p>
-     <%= item.description %>
-      <span class="product-card-price"><%= item.price %></span>
-      <p><%= form_for [:admin, item] do |f| %></p>
-    <p>  <%= f.label :status %></p>
-      <p><%= f.select :status, ['retired', 'active', 'out_of_stock'] %></p>
-    <p>  <%= f.submit %>
-      <% end %>
-    <%=link_to "Edit", edit_admin_item_path(item)  %>
-  </div>
+  <div class="sort">
+    <%= form_tag(admin_items_path, method: :get) do %>
+      <%= label_tag "Sort" %>
+      <%= select_tag(:sort, options_for_select(item_sort, params[:sort])) %>
+      <%= label_tag "Filter" %>
+      <%= select_tag(:filter, options_for_select(item_status_filter, params[:filter])) %>
+      <%= submit_tag "Apply" %>
     <% end %>
   </div>
-
-<div class="paginate-container">
-  <%= will_paginate @items %>
-</div>
+  <br>
+  <table>
+    <th>Knit</th>
+    <th>Details</th>
+    <th>Update</th>
+    <% @items.each_with_index do |item, index| %>
+    <tr id=<%= index %>>
+      <td>
+        <div class="product-card-thumbnail">
+          <%= image_tag item.image.url unless item.image.url.nil? %>
+        </div>
+      </td>
+      <td >
+        <%= link_to "#{item.title}", item_path(item) %><br>
+        <%= item.description %><br>
+        <%= item.price_in_dollars %><br>
+        Status: <%= item.status %>
+      </td>
+      <td>
+        <%=link_to "Edit", edit_admin_item_path(item)  %>
+      </td>
+      <td>
+        <% if item.status == "retired" %>
+          <%= button_to "Reactivate Item", admin_item_path(item, status: "active"), method: :put  %>
+        <% else %>
+          <%= button_to "Retire Item", admin_item_path(item, status: "retired"), method: :put %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>

@@ -7,20 +7,33 @@ describe "admin can edit items " do
         @item = create(:item, categories: [@category])
       end
 
-      it "allows admin to update status" do
+      it "allows admin to update status to retired" do
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
         visit admin_items_path
 
-        within('.all-items') do
-        select "retired", :from => "item[status]"
-        click_on "Update Item"
-
+        within('#0') do
+          click_button "Retire Item"
+        end
+        within "#0" do
+          expect(page).to have_content("retired")
+        end
       end
-        expect(current_path).to eq(admin_items_path)
-        expect(page).to have_content("retired")
 
+      it "allows admin to update status to active" do
+        create(:item, status: 0)
+
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+        visit admin_items_path
+
+        within('#1') do
+          click_button "Reactivate Item"
+        end
+        within '#1' do
+          expect(page).to have_content("active")
+        end
       end
 
     it "allows admin to edit an item" do
