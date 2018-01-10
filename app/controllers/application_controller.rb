@@ -42,6 +42,10 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def require_logged_in
+      render file: "/public/404" unless logged_in?
+    end
+
     def set_cart
       @cart = Cart.new(session[:cart])
     end
