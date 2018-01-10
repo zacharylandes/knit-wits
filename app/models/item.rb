@@ -30,7 +30,7 @@ class Item < ApplicationRecord
   end
 
   def times_retired
-    retired_items.count
+    retired_items.length
   end
 
   def self.categories_with_highest_price
