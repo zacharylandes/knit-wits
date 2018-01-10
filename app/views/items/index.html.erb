@@ -6,7 +6,8 @@
 
 <div class="sort">
   <%= form_tag(items_path, method: :get) do %>
-    <%= select_tag(:sort, options_for_select(sort_methods, params[:sort])) %>
+    <%= select_tag(:sort, options_for_select(item_sort, params[:sort])) %>
+    <%= submit_tag "Sort" %>
   <% end %>
 </div>
 

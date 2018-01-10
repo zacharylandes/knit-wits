@@ -44,6 +44,12 @@ class Item < ApplicationRecord
     .order('retired_count DESC')
   end
 
+  def self.sort(sort)
+    sort = "title ASC" if sort.nil?
+    all
+    .order(sort)
+  end
+
   private
 
     def retired_item

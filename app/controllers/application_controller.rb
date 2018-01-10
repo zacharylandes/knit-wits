@@ -4,21 +4,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   before_action :set_cart
-  helper_method :sort_methods
+  helper_method :item_sort
   helper_method :price_in_dollars
   helper_method :states_helper
-
-  before_action :set_cart
-
-  helper_method :sort_methods, :current_user, :current_admin?, :logged_in?
+  helper_method :current_admin?
 
 
-  def sort_methods
+  def item_sort
     [
-      ["Price, Low to High", "price ASC"],
-      ["Price, High to Low", "price DESC"],
       ["Alphabetically, A-Z", "title ASC"],
-      ["Alphabetically, Z-A", "title DESC"]
+      ["Alphabetically, Z-A", "title DESC"],
+      ["Price, Low to High", "price ASC"],
+      ["Price, High to Low", "price DESC"]
     ]
   end
 

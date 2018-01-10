@@ -37,7 +37,10 @@
 
   <div class="dashboard-orders">
     <p>Orders by State:  </p>
-    <%= link_to "Sort by Order Count", admin_analytics_dashboard_path(sort: "count"), method: :get, class: "button" %>
+    <%= form_tag admin_analytics_dashboard_path, method: :get do %>
+      <%= select_tag(:sort, options_for_select(state_sort, params[:sort])) %>
+      <%= submit_tag "Sort" %>
+    <% end %>
     <table class="order-by-state">
       <th>State</th>
       <th>Completed Orders</th>

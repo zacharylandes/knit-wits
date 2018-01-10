@@ -16,20 +16,12 @@ class Order < ApplicationRecord
     price_in_dollars(order_total)
   end
 
-  def self.state_by_alphabetical
+  def self.by_state(sort)
+    sort = "users.state" if sort.nil?
     joins(:user)
     .where(status: "Completed")
     .group("users.state")
-    .order("users.state")
+    .order(sort)
     .count
   end
-
-  def self.state_by_order_count
-    joins(:user)
-    .where(status: "Completed")
-    .group("users.state")
-    .order("count_all DESC")
-    .count
-  end
-
 end
