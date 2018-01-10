@@ -16,7 +16,7 @@ class Order < ApplicationRecord
     price_in_dollars(order_total)
   end
 
-  def self.by_state(sort)
+  def self.completed_by_state(sort)
     sort = "users.state" if sort.nil?
     joins(:user)
     .where(status: "Completed")

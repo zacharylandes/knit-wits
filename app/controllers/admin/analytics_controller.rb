@@ -5,7 +5,7 @@ class Admin::AnalyticsController < ApplicationController
     @user_orders = User.user_most_orders if !User.all.empty?
     @categories = Category.all
     @retired_items = Item.retired_items
-    @orders_by_state = Order.by_state(params[:sort])
+    @orders_by_state = Order.completed_by_state(params[:sort])
   end
 
   private
