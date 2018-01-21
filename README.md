@@ -2,7 +2,7 @@
 
 Knit Wits is a Rails application that allows users to browse local Colorado handmade knits, add items to their cart, checkout, and view their orders. It also allows an administrator to view a variety of analytics about their users, items, and orders. It was built by Turing students Max Stackhouse, Katy Welyzcko, and Zachary Landes.
 
-See it live on heroku -knit-wits.herokuapp.com
+See it live on heroku - http://knit-wits.herokuapp.com
 
 Below are the user stories that were used to guide our development
 
